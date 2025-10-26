@@ -4,9 +4,9 @@ import './LoadingPage.css'
 const LoadingPage = () => {
     return (
         <>
-            <div className="landing-page flex flex-col items-center py-40 h-screen">
-                <div className="logo">
-                    <img src="/logo.png" alt="BeeStack" className="w-20 h-20" />
+            <div className="loading-page flex flex-col items-center py-40 h-screen w-screen">
+                <div className="logo w-60 h-60">
+                    <img src="/logo.png" alt="BeeStack" className='w-full h-full object-contain'/>
                 </div>
                 <div className="name text-4xl py-5" >
                     <h1>BeeStack</h1>

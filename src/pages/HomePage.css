@@ -5,17 +5,28 @@ html, body {
     box-sizing: border-box;
     background-color: #F1F4F9;
 }
+
+/* make sizing predictable */
+html, body, * {
+  box-sizing: border-box;
+}
+
+
 .carousal{
     background-image: url('/images/Carousal.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%; /* use 100% to avoid scrollbar/overflow issues from 100vw */
-    height: 80vh;
+    margin: 0 auto;  
+    display: flex;
+    align-items: center;
     display: block;
     position: relative;
     left: 0;
     top: 0;
+    overflow: hidden; /* optional: prevents visual overflow */
+    padding-inline: 0; /* let .left control internal padding */
 }
 
 h5{
@@ -105,10 +116,119 @@ h2{
     opacity: 0.95;
 }
 
+/* left column: responsive padding and max width so it never pushes outside */
+.left {
+  width: 100%;
+  max-width: 1080px; /* limits how wide the content can grow */
+  padding: clamp(1rem, 6vw, 4rem); /* responsive padding instead of fixed pl-28 */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 11vw;
+}
+
+/* ensure headings and paragraphs wrap */
+.carousal h1,
+.carousal h2,
+.carousal h5 {
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* buttons wrap instead of overflowing */
+.buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+:root {
+  --content-pad: 11vw; /* keep one source of truth for left offset */
+}
+
+/* use same padding and responsive font sizing as .left/h1 */
+.whatwedo {
+  display: flex;
+  align-items: center;
+  padding-block: 2rem;
+}
 
 .heading{
-    font-size: 4rem;
-    color: #BBBBBC;
-    font-weight: 700;
-    font-family: 'K2D', sans-serif;
+  padding-left: var(--content-pad);
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4rem); /* scales between small and large screens */
+  color: #BBBBBC;
+  font-weight: 700;
+  font-family: 'K2D', sans-serif;
+  line-height: 1;
+  max-width: 1080px; /* same max width as .left */
+}
+
+.testimonials
+{
+  padding: 40px 0;
+  color: #434343;
+  text-align: center;
+}
+
+.testimonial-inner
+{
+  max-width: 1540px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.row
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col
+{
+  flex: 33.33%;
+  max-width: 33.33%;
+  box-sizing:  border-box;
+  padding: 15px;
+}
+
+.testimonial
+{
+  background: #C9DCD1;
+  padding: 30px;
+  border-radius: 1rem;
+}
+
+.name
+{
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+
+.stars
+{
+  color: #f0932b;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 960px)
+{
+  .col
+  {
+    flex: 100%;
+    max-width: 80%;
+  }
+}
+
+/* responsive tweak for narrow screens */
+@media (max-width: 900px) {
+  .heading {
+    padding-left: 1.25rem;
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+  }
 }

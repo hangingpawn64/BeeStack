@@ -10,13 +10,16 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <div className="logo"></div>
+      <div className="logo">
+      <img src="/logo.png"/>
+      </div>
+      <div className="navname">BeeStack</div>
       
       {/* Desktop Navigation */}
       <div className="nav-items desktop-nav">
         <div>
           <a href="">Home</a>
-          <div className="underline border-3 border-white"></div>
+          <div className="underline 2"></div>
         </div>
         <div>
           <a href="">Our Work</a>
