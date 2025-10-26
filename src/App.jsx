@@ -1,24 +1,28 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import LoadingPage from './assets/LoadingPage'
-import Navbar from './assets/Navbar'
+import HomePage from './pages/HomePage';
+import LoadingPage from './pages/LoadingPage'
+
 
 function App() {
-  const [count, setCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3500); // 3.5 seconds
+    }, 4000); // 4 seconds to match the loader animation
 
-    return () => clearTimeout(timer); // cleanup just in case
+    return () => clearTimeout(timer);
   }, []);
 
+  if (isLoading) {
+    return <LoadingPage />
+  }
+
   return (
-    <>
-      {isLoading ? <LoadingPage /> : <Navbar />}
-    </>
+    <div className="app">
+      <HomePage />
+    </div>
   )
 }
 

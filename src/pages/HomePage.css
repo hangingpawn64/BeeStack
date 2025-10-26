@@ -1,0 +1,114 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F1F4F9;
+}
+.carousal{
+    background-image: url('/images/Carousal.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; /* use 100% to avoid scrollbar/overflow issues from 100vw */
+    height: 80vh;
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+h5{
+    color: #fff;
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 3.125rem;
+    font-size: 1.25rem;
+
+    /* translucent white background + glass blur */
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+
+    /* backdrop blur for glass effect */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+
+    /* subtle lift */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+
+    /* ensure padding area shows the blur properly */
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+
+    /* changed code: prevent the blur box from stretching full width */
+    width: auto;
+    max-width: -webkit-fit-content;
+    max-width: fit-content;
+    white-space: nowrap;      /* keep text on one line so box wraps tightly */
+    box-sizing: border-box;
+    flex: 0 0 auto;          /* if inside a flex container, prevent stretching */
+    align-self: flex-start;  /* avoid cross-axis stretch in flex layouts */
+}
+
+h1{
+    font-size: 3rem;
+    color: #fff;
+}
+
+h2{
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+/* button styles */
+.buttons{
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.btn{
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 0.75rem;
+    border: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    white-space: nowrap;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+/* consultation button: pink background, black text */
+.consultation{
+    background: #fcab1e;
+    color: #000;
+}
+
+/* services button: white background, black text */
+.services{
+    background: #fff;
+    color: #000;
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* small hover / active feedback */
+.btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+}
+.btn:active{
+    transform: translateY(0);
+    opacity: 0.95;
+}
+
+
+.heading{
+    font-size: 4rem;
+    color: #BBBBBC;
+    font-weight: 700;
+    font-family: 'K2D', sans-serif;
+}

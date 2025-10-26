@@ -2,3 +2,11 @@
   font-family: 'K2D', sans-serif;
 }
 
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #F1F4F9;
+}
+
+
