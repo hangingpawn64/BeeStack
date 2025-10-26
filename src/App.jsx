@@ -10,8 +10,8 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 4000); // 4 seconds to match the loader animation
-
+    }, 3500);
+    
     return () => clearTimeout(timer);
   }, []);
 

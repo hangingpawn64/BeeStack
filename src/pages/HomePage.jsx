@@ -52,7 +52,7 @@ const HomePage = () => {
             <Card
               key={index}
               name={member.name}
-              position={member.position}
+              description={member.description}
               photo={member.photo}
             />
           ))}

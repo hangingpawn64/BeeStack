@@ -3,9 +3,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 3rem;
-  column-gap: 3rem;
-  padding: 0.5rem;
-  max-width: 1280px;
+  column-gap: 4rem;
+  /* padding: 0.5rem; */
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -14,7 +14,6 @@
 .card {
   width: 100%;
   /* removed fixed height/max-width so aspect-ratio controls card height */
-  border: 0.1rem solid black;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -26,59 +25,52 @@
   aspect-ratio: 4 / 3;
   box-sizing: border-box;
 }
-.card:hover {
-  cursor: pointer;
-  transform: translateY(-4px);
-}
-
-/* image area grows to fill available space above details */
-.card-image-wrapper {
-  position: relative;
-  width: 100%;
-  flex: 1 1 auto; /* allow image area to expand */
-  overflow: hidden;
-}
 
 .card-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 35%;
+  height: 35%;
+  padding-left: 0.625rem;
+  padding-top: 2rem;
+  object-fit: contain;
+  
   transition: transform 0.4s ease-in-out;
 }
 
-.card-photo:hover {
-  transform: scale(1.3);
-}
 
 /* details area remains content-sized */
 .card-details {
   font-family: 'K2D', sans-serif;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start; /* changed: left-align children so padding lines up */
+  text-align: left;
   color: black;
-  background-color: rgba(255, 255, 255, 0.9);
-  flex: 0 0 auto; /* do not stretch; height is determined by content */
+  flex: 0 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 1rem;
 }
 
 .card-details h3 {
+  /* changed: don't force full width, limit right side with max-width */
+  padding: 1rem 0 0 0.625rem;
+  width: auto;                /* allow natural sizing */
+  max-width: 75%;             /* reduce width from the right — adjust % as needed */
+  align-self: flex-start;     /* prevent stretching in the column layout */
+  margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
+  line-height: 1.05;
+  word-break: break-word;
 }
 
 .card-details p {
-  font-size: 1.2rem;
+  width: 100%;
+  padding: 1rem 0 0 0.625rem;
+  font-size: 1.25rem;
 }
 
-.card-details a {
-  margin-top: 0.5rem;
-  text-decoration: none;
-  color: #0A66C2;
-  font-weight: bold;
-}
 
 /* Responsive adjustments: keep same aspect-ratio but adapt grid/spacing */
 @media (max-width: 1024px) {
@@ -132,9 +124,8 @@
     overflow-wrap: break-word;
   }
   .card-details h3 {
-    font-size: 1.1rem;
-    white-space: normal;
-    margin-bottom: 0.5rem;
+    max-width: 100%;
+    padding-left: 0.5rem;
   }
   .card-details p {
     font-size: 1rem;

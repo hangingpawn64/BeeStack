@@ -15,20 +15,20 @@ const Navbar = () => {
       {/* Desktop Navigation */}
       <div className="nav-items desktop-nav">
         <div>
-          <a href="">HOME</a>
+          <a href="">Home</a>
           <div className="underline border-3 border-white"></div>
         </div>
         <div>
-          <a href="">PARTICIPANTS</a>
+          <a href="">Our Work</a>
         </div>
         <div>
-          <a href="">PROJECTS</a>
+          <a href="">About Us</a>
         </div>
         <div>
-          <a href="">ACHIEVEMENTS</a>
+          <a href="">Careers</a>
         </div>
         <div className="aboutus">
-          <a href="">ABOUT US</a>
+          <a href="">Contact Us</a>
         </div>
       </div>
 
@@ -46,19 +46,19 @@ const Navbar = () => {
         
         <div className={`mobile-nav-items ${isMenuOpen ? 'show' : ''}`}>
           <div>
-            <a href="" onClick={() => setIsMenuOpen(false)}>HOME</a>
+            <a href="" onClick={() => setIsMenuOpen(false)}>Home</a>
           </div>
           <div>
-            <a href="" onClick={() => setIsMenuOpen(false)}>PARTICIPANTS</a>
+            <a href="" onClick={() => setIsMenuOpen(false)}>Our Work</a>
           </div>
           <div>
-            <a href="" onClick={() => setIsMenuOpen(false)}>PROJECTS</a>
+            <a href="" onClick={() => setIsMenuOpen(false)}>About Us</a>
           </div>
           <div>
-            <a href="" onClick={() => setIsMenuOpen(false)}>ACHIEVEMENTS</a>
+            <a href="" onClick={() => setIsMenuOpen(false)}>Careers</a>
           </div>
           <div className="aboutus">
-            <a href="" onClick={() => setIsMenuOpen(false)}>ABOUT US</a>
+            <a href="" onClick={() => setIsMenuOpen(false)}>COntact Us</a>
             <div className="underline border-3 border-white"></div>
           </div>
         </div>

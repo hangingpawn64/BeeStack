@@ -1,32 +1,32 @@
 [
   {
     "name": "Student & Learning Management Systems",
-    "description": "Core Member",
-    "photo": "/images/akshit.jpg"
+    "description": "Manage student records, performance, classes, and content.",
+    "photo": "/images/hat.svg"
   },
   {
     "name": "Online Examination Platforms",
-    "description": "Web Lead",
-    "photo": "/images/ayush.jpg"
+    "description": "Manage student records, performance, classes, and content.",
+    "photo": "/images/notebook.svg"
   },
   {
     "name": "Student & Learning Management Systems",
-    "description": "Manufacturing Lead",
-    "photo": "/images/swarangi.jpeg"
+    "description": "Manage student records, performance, classes, and content.",
+    "photo": "/images/lock.svg"
   },
   {
     "name": "Student & Learning Management Systems",
-    "description": "Core Member",
-    "photo": "/images/akshit.jpg"
+    "description": "Manage student records, performance, classes, and content.",
+    "photo": "/images/phone.svg"
   },
   {
     "name": "Online Examination Platforms",
-    "description": "Web Lead",
-    "photo": "/images/ayush.jpg"
+    "description": "Manage student records, performance, classes, and content.",
+    "photo": "/images/tower.svg"
   },
   {
     "name": "Student & Learning Management Systems",
-    "description": "Manufacturing Lead",
-    "photo": "/images/swarangi.jpeg"
+    "description": "Manage student records, performance, classes, and content.",
+    "photo": "/images/user.svg"
   }
 ]
