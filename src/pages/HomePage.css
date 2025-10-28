@@ -34,7 +34,7 @@ h5{
     display: inline-block;
     padding: 0.6rem 1rem;
     border-radius: 3.125rem;
-    font-size: 1.25rem;
+    font-size: clamp(0.9rem, 2.6vw, 1.1rem);
 
     /* translucent white background + glass blur */
     background: rgba(255,255,255,0.12);
@@ -63,12 +63,14 @@ h5{
 }
 
 h1{
-    font-size: 3rem;
+    font-size: clamp(1.6rem, 6vw, 3rem);
+    line-height: 1.15;
     color: #fff;
 }
 
 h2{
-    font-size: 1.25rem;
+    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+    line-height: 1.35;
     color: #fff;
 }
 
@@ -82,15 +84,15 @@ h2{
 
 .btn{
     cursor: pointer;
-    font-size: 1.5rem;
-    padding: 0.6rem 1.1rem;
+    font-size: clamp(0.95rem, 3.8vw, 1.2rem);
+    padding: clamp(0.45rem, 2.2vw, 0.6rem) clamp(0.8rem, 3vw, 1.1rem);
     border-radius: 0.75rem;
     border: none;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
     white-space: nowrap;
-    margin-right: 2rem;
-    margin-top: 2rem;
+    margin-right: clamp(0.5rem, 4vw, 2rem);
+    margin-top: clamp(0.25rem, 2.5vw, 1rem);
 }
 
 /* consultation button: pink background, black text */
@@ -123,8 +125,8 @@ h2{
   padding: clamp(1rem, 6vw, 4rem); /* responsive padding instead of fixed pl-28 */
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding-left: 11vw;
+  gap: clamp(0.5rem, 2.6vw, 1rem);
+  padding-left: var(--content-pad);
 }
 
 /* ensure headings and paragraphs wrap */
@@ -177,7 +179,8 @@ h2{
 {
   max-width: 1540px;
   margin: auto;
-  overflow: hidden;
+  overflow-x: hidden;  /* keep horizontal containment */
+  overflow-y: visible; /* allow scaled center card to show */
   padding: 0 20px;
 }
 
@@ -190,32 +193,83 @@ h2{
   margin-bottom: -0.5em;
 }
 
-.row
-{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* slider viewport/track for animated movement */
+.slider-viewport {
+  overflow-x: hidden;
+  overflow-y: visible; /* prevent top clipping of scaled card */
+  /* clip a tiny portion from both sides to hide slide edges */
+  width: 98%;            /* ~1% cropped each side */
+  margin-inline: auto;   /* keep centered */
+  padding-inline: clamp(0.25rem, 1vw, 0.75rem);
+}
+.slider-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(100% / 3);
+  gap: 0;; /* avoid width overrun from gaps */
+  transition: transform 600ms ease;
+  will-change: transform;
+}
+.slider-track.no-transition { transition: none; }
+
+.slide {
+  box-sizing: border-box;
+  padding: 0 clamp(0.5rem, 2vw, 0.9rem); /* internal spacing between cards */
 }
 
-.col
-{
-  flex: 33.33%;
-  max-width: 33.33%;
-  box-sizing:  border-box;
-  padding: 15px;
+.slide.center .testimonial {
+
+
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+.slide.side .testimonial {
+  transform: scale(0.85);
+  opacity: 0.95;
+}
+
+/* ---------- Responsiveness for slider visibility ---------- */
+/* Desktop large: show most of side cards */
+@media (max-width: 1200px) {
+  .slider-viewport { width: 96%; }
+  .slide.center .testimonial { transform: scale(1.05); }
+}
+
+/* Tablet: reveal less of side cards, keep center fully visible */
+@media (max-width: 992px) {
+  .slider-viewport { width: 100%; }
+  .slide.center .testimonial { transform: scale(1.4); }
+  .slide.side .testimonial { transform: scale(0.74); }
+  .testimonial { padding: clamp(0.875rem, 2.6vw, 1.25rem); }
+  .name { font-size: clamp(0.25rem, 0.75vw, 0.3rem); }
+}
+
+/* Mobile: center card dominant; side cards peek slightly */
+@media (max-width: 768px) {
+  .slider-viewport { width: 100%; }
+  .slide.center .testimonial { transform: scale(1.03); }
+  .slide.side .testimonial { transform: scale(0.62); opacity: 0.9; }
+  .testimonial { padding: clamp(0.75rem, 3.5vw, 1rem); }
+  .name { font-size: clamp(0.85rem, 1.2vw, 0.85rem); }
 }
 
 .testimonial
 {
   background: #C9DCD1;
-  padding: 30px;
+  padding: clamp(1rem, 3vw, 1.875rem);
   padding-top: 0;
-  border-radius: 1rem;
+  border-radius: 0.625rem;
+
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .name
 {
-  font-size: 20px;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
   text-transform: uppercase;
   margin-bottom: 1em;
 }
@@ -223,8 +277,26 @@ h2{
 .stars
 {
   color: #f0932b;
-  margin: 20px 0;
+  margin: clamp(0.5rem, 2.4vw, 1.25rem) 0;
 }
+
+/* dots */
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: clamp(0.75rem, 3vw, 1.25rem);
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cfd8dc;
+  border: 0;
+  cursor: pointer;
+}
+.dot.active { background: #607d8b; }
 
 @media screen and (max-width: 960px)
 {
@@ -234,17 +306,40 @@ h2{
     align-items: center;
     text-align: center;
   }
-  .col
-  {
-    flex: 100%;
-    max-width: 80%;
+  .slider-row {
+    grid-template-columns: 1fr minmax(0, 1.1fr) 1fr;
+    gap: 0.75rem;
   }
 }
 
 /* responsive tweak for narrow screens */
 @media (max-width: 900px) {
+  :root { --content-pad: 1.25rem; }
   .heading {
-    padding-left: 1.25rem;
+    padding-left: var(--content-pad);
     font-size: clamp(1.6rem, 5vw, 2.6rem);
   }
+}
+
+/* Mobile-first reductions so buttons are visible on load */
+@media (max-width: 768px) {
+  :root { --content-pad: 1rem; }
+  .left {
+    padding: clamp(0.75rem, 5vw, 1.25rem);
+    padding-left: var(--content-pad);
+  }
+  h1 { font-size: clamp(1.35rem, 6.5vw, 1.8rem); }
+  h2 { font-size: clamp(0.9rem, 3.8vw, 1rem); }
+  h5 { font-size: clamp(0.85rem, 3.6vw, 1rem); }
+  .buttons { margin-top: 0.5rem; }
+  .btn { margin-top: 0.4rem; }
+}
+
+@media (max-width: 480px) {
+  :root { --content-pad: 0.75rem; }
+  .left { padding-left: var(--content-pad); }
+  h1 { font-size: clamp(1.2rem, 7vw, 1.6rem); }
+  h2 { font-size: clamp(0.85rem, 4vw, 0.95rem); }
+  h5 { font-size: clamp(0.8rem, 4vw, 0.95rem); }
+  .buttons { gap: 0.5rem; }
 }

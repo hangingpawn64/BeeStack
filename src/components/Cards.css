@@ -2,11 +2,11 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 3rem;
-  column-gap: 4rem;
-  /* padding: 0.5rem; */
-  max-width: 1440px;
+  row-gap: clamp(1rem, 3vw, 3rem);
+  column-gap: clamp(1rem, 4vw, 4rem);
+  max-width: min(95vw, 90rem);
   margin: 0 auto;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
 }
 
 /* card: enforce width-driven sizing and a consistent height:width = 3:4
@@ -14,15 +14,12 @@
 .card {
   background-color: #E7ECF7;
   width: 100%;
-  /* removed fixed height/max-width so aspect-ratio controls card height */
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease;
-
-  /* ensure the card keeps width/height ratio corresponding to height:width = 3:4 */
   aspect-ratio: 4 / 3;
   box-sizing: border-box;
 }
@@ -30,10 +27,9 @@
 .card-photo {
   width: 35%;
   height: 35%;
-  padding-left: 0.625rem;
-  padding-top: 2rem;
+  padding-left: 0.6rem;
+  padding-top: clamp(0.75rem, 2.2vw, 2rem);
   object-fit: contain;
-  
   transition: transform 0.4s ease-in-out;
 }
 
@@ -44,32 +40,31 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* changed: left-align children so padding lines up */
+  align-items: flex-start;
   text-align: left;
   color: black;
   flex: 0 0 auto;
   width: 100%;
   box-sizing: border-box;
-  padding-left: 1rem;
+  padding-left: clamp(0.5rem, 1.6vw, 1rem);
 }
 
 .card-details h3 {
-  /* changed: don't force full width, limit right side with max-width */
-  padding: 1rem 0 0 0.625rem;
-  width: auto;                /* allow natural sizing */
-  max-width: 75%;             /* reduce width from the right — adjust % as needed */
-  align-self: flex-start;     /* prevent stretching in the column layout */
+  padding: clamp(0.5rem, 1.6vw, 1rem) 0 0 0.625rem;
+  width: auto;
+  max-width: 75%;
+  align-self: flex-start;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
   font-weight: bold;
-  line-height: 1.05;
+  line-height: 1.15;
   word-break: break-word;
 }
 
 .card-details p {
   width: 100%;
-  padding: 1rem 0 0 0.625rem;
-  font-size: 1.25rem;
+  padding: clamp(0.5rem, 1.4vw, 1rem) 0 0 0.625rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
 }
 
 
@@ -77,8 +72,8 @@
 @media (max-width: 1024px) {
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 3rem;
-    row-gap: 2rem;
+    column-gap: clamp(1rem, 3.4vw, 3rem);
+    row-gap: clamp(0.75rem, 3vw, 2rem);
   }
   /* allow slightly smaller max width per column if needed */
   .card {
@@ -89,18 +84,18 @@
 @media (max-width: 768px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
-    row-gap: 2rem;
-    padding: 2rem;
+    column-gap: clamp(0.75rem, 3vw, 2rem);
+    row-gap: clamp(0.75rem, 3vw, 2rem);
+    padding: clamp(0.5rem, 3vw, 2rem);
   }
   .card {
     aspect-ratio: 4 / 3;
   }
   .card-details h3 {
-    font-size: 1.1rem;
+    font-size: clamp(0.98rem, 2.2vw, 1.08rem);
   }
   .card-details p {
-    font-size: 0.9rem;
+    font-size: clamp(0.82rem, 2.1vw, 0.92rem);
   }
 }
 
@@ -108,17 +103,22 @@
   .card-grid {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
-    padding: 1rem;
-    column-gap: 1rem;
+    padding: clamp(0.5rem, 3vw, 1rem);
+    column-gap: clamp(0.5rem, 3vw, 1rem);
   }
   .card {
-    /* keep width-driven sizing, aspect ratio preserved */
-    aspect-ratio: 4 / 3;
+    /* switch to grid to place text left and icon right */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: clamp(0.5rem, 3vw, 0.75rem);
+    aspect-ratio: unset; /* allow content-driven height on tiny screens */
+    padding: clamp(0.5rem, 3vw, 0.75rem);
     max-width: 100%;
     min-width: 0;
   }
   .card-details {
-    padding: 0.6rem;
+    padding: 0; /* grid handles spacing */
     width: 100%;
     min-width: 0;
     word-break: break-word;
@@ -126,14 +126,23 @@
   }
   .card-details h3 {
     max-width: 100%;
-    padding-left: 0.5rem;
+    padding: 0;
+    font-size: clamp(0.95rem, 4vw, 1.05rem); /* smaller heading on mobile */
+    line-height: 1.15;
   }
   .card-details p {
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 3.4vw, 0.95rem);
     white-space: normal;
     word-break: break-word;
     overflow-wrap: break-word;
     display: block;
     width: 100%;
+  }
+  .card-photo {
+    width: clamp(2.5rem, 16vw, 4.5rem);
+    height: clamp(2.5rem, 16vw, 4.5rem);
+    padding: 0; /* remove large paddings so it fits on the right */
+    justify-self: end; /* push icon to right side */
+    object-fit: contain;
   }
 }
