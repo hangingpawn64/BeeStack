@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "./HomePage.css";
 import members from "../work.json";
 import Card from "../components/Cards";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
@@ -58,6 +59,7 @@ const HomePage = () => {
       <div className="row">
         <div className="col">
           <div className="testimonial">
+            <div className="quote">"</div>
             <div className="name">John Waddrob</div>
             <p>“The professionalism and technical depth at BeeStack are unmatched. We felt like they were part of our own team.”</p>
             <div className="stars">
@@ -72,6 +74,7 @@ const HomePage = () => {
         
         <div className="col">
           <div className="testimonial">
+            <div className="quote">"</div>
             <div className="name">John Waddrob</div>
             <p>“BeeStack delivers peace of mind. Reliable, responsive, and focused on real results.”</p>
             <div className="stars">
@@ -86,6 +89,7 @@ const HomePage = () => {
         
         <div className="col">
           <div className="testimonial">
+           <div className="quote">"</div>
             <div className="name">John Waddrob</div>
             <p>“BeeStack helped us launch faster than we thought possible — their team truly understands product quality and deadlines.”</p>
             <div className="stars">
@@ -100,6 +104,8 @@ const HomePage = () => {
       </div>
     </div>
   </div>
+
+  <Footer />
     </>
   );
 };
