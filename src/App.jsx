@@ -6,6 +6,7 @@ import OurWork from './pages/OurWork'
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 import Technique from './pages/Technique';
 import Technology from './pages/Technology';
+import Products from './pages/Products';
 
 function App() {
 
@@ -27,8 +28,8 @@ function App() {
       element: <Technology />
     },
     {
-      path: "/our-work/technique",
-      element: <Technology />
+      path: "/our-work/products",
+      element: <Products />
     }
   ]);
 
