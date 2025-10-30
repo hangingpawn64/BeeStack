@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage';
 import LoadingPage from './pages/LoadingPage'
 import OurWork from './pages/OurWork'
 import {createBrowserRouter , RouterProvider} from 'react-router-dom'
+import Technique from './pages/Technique';
+import Technology from './pages/Technology';
 
 function App() {
 
@@ -16,6 +18,18 @@ function App() {
       path: "/our-work",
       element: <OurWork />,
     },
+    {
+      path: "/our-work/technique",
+      element: <Technique />
+    },
+    {
+      path: "/our-work/technology",
+      element: <Technology />
+    },
+    {
+      path: "/our-work/technique",
+      element: <Technology />
+    }
   ]);
 
 

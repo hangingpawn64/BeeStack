@@ -2,6 +2,7 @@ import React from "react";
 import "./OurWork.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const OurWork = () => {
   return (
@@ -11,17 +12,27 @@ const OurWork = () => {
       <div className="container">
         <aside className="sidebar">
           <ul>
-            <li>The Concept</li>
-            <li>Technique</li>
-            <li>Technology</li>
-            <li>Tech we've built</li>
+            <li className="highlighted font-bold">
+              <Link to="/our-work">The Concept</Link>
+            </li>
+            <li className="unhighlighted font-bold">
+              <Link to="/our-work/technique">Technique</Link>
+            </li>
+            <li className="unhighlighted font-bold">
+              <Link to="/our-work/technology">Technology</Link>
+            </li>
+            <li className="unhighlighted font-bold">
+              <Link to="/our-work/products">Tech we've built</Link>
+            </li>
           </ul>
         </aside>
         <main className="main-content">
-          <p className="tagline"><b>We make shipping great products simpler and faster.</b></p>
+          <p className="tagline">
+            <b>We make shipping great products simpler and faster.</b>
+          </p>
           <h1>The Concept</h1>
           <div className="devices-container flex items-center justify-center">
-            <img src="/images/devices.png" alt="devices"/>
+            <img src="/images/devices.png" alt="devices" />
           </div>
           <div className="section">
             <h2 className="section-title">
@@ -124,48 +135,42 @@ const OurWork = () => {
             </h2>
             <p>
               Our team is hands-on, self-driven, and deeply technical. We take
-              full ownership of every deliverable from architecture to deployment,
-              ensuring every product we ship meets the highest standards of quality.
+              full ownership of every deliverable from architecture to
+              deployment, ensuring every product we ship meets the highest
+              standards of quality.
             </p>
           </div>
           <div className="section">
-            <h2 className="section-title">
-              Transparent Collaboration
-            </h2>
+            <h2 className="section-title">Transparent Collaboration</h2>
             <p>
-              We believe in building together, not behind closed doors. We prefer
-              visible progress over long reports commits, builds, and working demos
-              that speak for themselves.
+              We believe in building together, not behind closed doors. We
+              prefer visible progress over long reports commits, builds, and
+              working demos that speak for themselves.
             </p>
             <p>
-              We iterate in the open, ensuring you're always part of the process.
-            </p>
-          </div>
-          <div className="section">
-            <h2 className="section-title">
-              One Team, One Channel
-            </h2>
-            <p>
-              You'll always have a single point of contact someone who understands
-              both the business goals and the technical roadmap.
-            </p>
-            <p>
-              But behind that person stands the full BeeStack team, aligned to your
-              vision and ready to deliver.
+              We iterate in the open, ensuring you're always part of the
+              process.
             </p>
           </div>
           <div className="section">
-            <h2 className="section-title">
-              Built on Trust
-            </h2>
+            <h2 className="section-title">One Team, One Channel</h2>
+            <p>
+              You'll always have a single point of contact someone who
+              understands both the business goals and the technical roadmap.
+            </p>
+            <p>
+              But behind that person stands the full BeeStack team, aligned to
+              your vision and ready to deliver.
+            </p>
+          </div>
+          <div className="section">
+            <h2 className="section-title">Built on Trust</h2>
             <p>
               Our clients stay with us because they trust us. Your success fuels
               ours and that's what keeps us pushing boundaries, solving harder
               problems, and crafting better products.
             </p>
-            <p>
-              That's BeeStack always for you.
-            </p>
+            <p>That's BeeStack always for you.</p>
           </div>
         </main>
       </div>
