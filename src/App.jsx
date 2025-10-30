@@ -2,9 +2,23 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import HomePage from './pages/HomePage';
 import LoadingPage from './pages/LoadingPage'
-
+import OurWork from './pages/OurWork'
+import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 
 function App() {
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/our-work",
+      element: <OurWork />,
+    },
+  ]);
+
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -21,7 +35,7 @@ function App() {
 
   return (
     <div className="app">
-      <HomePage />
+      <RouterProvider router={router} />
     </div>
   )
 }

@@ -16,4 +16,10 @@
 
 .loading-page h1{
   color: black;
+  background-color: #F1F4F9;
+}
+
+.BeeStackname h1{
+  color: black;
+  font-family: 'K2D', sans-serif;
 }

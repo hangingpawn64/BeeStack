@@ -12,7 +12,7 @@ const HomePage = () => {
       <div className="carousal flex">
         <div className="left flex flex-col pt-24 pl-28 ">
           <h5 className="mb-4">Trusted by 100+ Business</h5>
-          <h1>
+          <h1 className="BuildSystemsHeading">
             <b>Build Systems That Move<br />Ideas Forward.</b>
           </h1>
           <h2> <br />BeeStack is a next-gen technology company crafting intelligent,<br />
@@ -163,7 +163,7 @@ function TestimonialSlider() {
                   <div className="testimonial">
                     <div className="quote">"</div>
                     <div className="name">{item.name}</div>
-                    <p className="para">{item.text}</p>
+                    <p>{item.text}</p>
                     <StarRow count={item.stars} />
                   </div>
                 </div>

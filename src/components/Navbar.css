@@ -1,5 +1,5 @@
 :root {
-  --nav-max-width: 1540px;
+  --nav-max-width: 100%;
   --nav-gutter: clamp(0.75rem, 3.5vw, 2.5rem);
   --nav-height: 72px;
   --logo-size-lg: 48px;
@@ -20,7 +20,11 @@
   margin: 0 auto;
   box-sizing: border-box;
   height: var(--nav-height);
-  background: transparent;
+  background: #F1F4F9;
+  position: sticky;
+  top: 0; /* Added this - CRITICAL for sticky to work */
+  z-index: 1000; /* Added this - keeps navbar above other content */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Optional: adds subtle shadow */
 }
 
 /* brand (logo + name) — keep them left-aligned */

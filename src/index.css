@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: 'K2D', sans-serif;
+}
+
+/* Or more specifically */
+body, html {
+  font-family: 'K2D', sans-serif;
+}
+
+/* Target all text elements */
+body, html, input, textarea, select, button {
+  font-family: 'K2D', sans-serif;
+}

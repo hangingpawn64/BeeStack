@@ -11,6 +11,10 @@ html, body, * {
   box-sizing: border-box;
 }
 
+.BuildSystemsHeading{
+  color: white;
+  font-family: 'K2D', sans-serif;
+}
 
 .carousal{
     background-image: url('/images/Carousal.png');
@@ -206,7 +210,7 @@ h2{
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: calc(100% / 3);
-  gap: 0;; /* avoid width overrun from gaps */
+  gap: 0; /* avoid width overrun from gaps */
   transition: transform 600ms ease;
   will-change: transform;
 }
@@ -218,13 +222,12 @@ h2{
 }
 
 .slide.center .testimonial {
-
-
+  transform: scale(1.06);
   box-shadow: 0 18px 40px rgba(0,0,0,0.18);
 }
 
 .slide.side .testimonial {
-  transform: scale(0.85);
+  transform: scale(0.95);
   opacity: 0.95;
 }
 
@@ -237,20 +240,19 @@ h2{
 
 /* Tablet: reveal less of side cards, keep center fully visible */
 @media (max-width: 992px) {
-  .slider-viewport { width: 100%; }
-  .slide.center .testimonial { transform: scale(1.4); }
+  .slider-viewport { width: 92%; }
+  .slide.center .testimonial { transform: scale(1.04); }
   .slide.side .testimonial { transform: scale(0.74); }
   .testimonial { padding: clamp(0.875rem, 2.6vw, 1.25rem); }
-  .name { font-size: clamp(0.25rem, 0.75vw, 0.3rem); }
+  .name { font-size: clamp(0.95rem, 2.4vw, 1.15rem); }
 }
 
 /* Mobile: center card dominant; side cards peek slightly */
 @media (max-width: 768px) {
-  .slider-viewport { width: 100%; }
+  .slider-viewport { width: 88%; }
   .slide.center .testimonial { transform: scale(1.03); }
   .slide.side .testimonial { transform: scale(0.62); opacity: 0.9; }
   .testimonial { padding: clamp(0.75rem, 3.5vw, 1rem); }
-  .name { font-size: clamp(0.85rem, 1.2vw, 0.85rem); }
 }
 
 .testimonial
@@ -258,8 +260,8 @@ h2{
   background: #C9DCD1;
   padding: clamp(1rem, 3vw, 1.875rem);
   padding-top: 0;
-  border-radius: 0.625rem;
-
+  border-radius: 1rem;
+  /* Maintain visual width:height regardless of scale */
   aspect-ratio: 4 / 3;
   display: flex;
   flex-direction: column;
@@ -281,7 +283,6 @@ h2{
 }
 
 /* dots */
-
 .slider-dots {
   display: flex;
   justify-content: center;

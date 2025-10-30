@@ -8,7 +8,7 @@ const LoadingPage = () => {
                 <div className="logo w-60 h-60">
                     <img src="/logo.png" alt="BeeStack" className='w-full h-full object-contain'/>
                 </div>
-                <div className="name text-4xl py-5" >
+                <div className="BeeStackname text-4xl py-5" >
                     <h1>BeeStack</h1>
                 </div>
                 <div className="loader my-20"></div>

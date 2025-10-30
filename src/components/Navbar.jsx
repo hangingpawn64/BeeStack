@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,20 +19,20 @@ const Navbar = () => {
       {/* Desktop Navigation */}
       <div className="nav-items desktop-nav">
         <div>
-          <a href="">Home</a>
+          <Link to="/">Home</Link>
           <div className="underline 2"></div>
         </div>
         <div>
-          <a href="">Our Work</a>
+          <Link to="/our-work">Our Work</Link>
         </div>
         <div>
-          <a href="">About Us</a>
+          <Link to="/about-us">About Us</Link>
         </div>
         <div>
-          <a href="">Careers</a>
+          <Link to="/careers">Careers</Link>
         </div>
         <div className="aboutus">
-          <a href="">Contact Us</a>
+          <Link to="contact-us">Contact Us</Link>
         </div>
       </div>
 
