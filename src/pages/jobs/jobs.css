@@ -4,6 +4,27 @@
     box-sizing: border-box;
 }
 
+.applybtn{
+ aspect-ratio: 25 / 9;      /* maintains 141:45 ratio */
+  width: min(60%, 150px);      /* responsive width (adjust as needed) */
+  background-color: #FCAB1E;   /* button color */
+  color: BLACK;                /* text color */
+  border: none;                /* remove default border */
+  border-radius: 8px;         /* rounded corners */
+  font-size: 1.5rem;             /* scalable text */
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;               /* for centering text */
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.applybtn:hover {
+  background-color: #FCAB1E;
+  transform: scale(1.02);
+}
+
 .heading {
     padding-left: var(--content-pad);
     margin: 0;

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import Typewriter from 'typewriter-effect/dist/core';
 import Navbar from "../components/Navbar";
 import "./HomePage.css";
 import members from "../work.json";

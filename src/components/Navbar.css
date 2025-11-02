@@ -76,6 +76,7 @@
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
 }
+
 /* mobile menu/hamburger: hidden on large screens */
 .hamburger {
   display: none;
@@ -115,6 +116,29 @@
   border-bottom: 1px solid rgba(0,0,0,0.04);
 }
 .mobile-nav-items a:last-child { border-bottom: 0; }
+
+/* hide underline by default */
+.nav-item .underline {
+  width: 100%;
+  height: 3px;
+  background: #000;              /* adjust color */
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 180ms ease, opacity 180ms ease;
+  pointer-events: none;
+}
+
+/* show underline only when .show added or when nav-item has active class */
+.nav-item .underline.show,
+.nav-item.active .underline {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* optional: slightly offset the underline inside the nav-item */
+.nav-item { display: inline-flex; flex-direction: column; align-items: flex-start; }
+.nav-item a { text-decoration: none; }
 
 /* responsive adjustments */
 

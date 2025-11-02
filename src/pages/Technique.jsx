@@ -89,7 +89,7 @@ const Technique = () => {
             <p>
               We love structure but we also value flexibility.Every project is
               different, so our process adapts while upholding the fundamentals:
-              <ul className="dotsInList">
+              <ul className="list-disc list-inside">
                 <li>Consistent code reviews</li>
                 <li>Continuous integration & check-ins</li>
                 <li>Realistic testing coverage</li>
