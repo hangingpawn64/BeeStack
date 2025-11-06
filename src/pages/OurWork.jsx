@@ -8,7 +8,7 @@ const OurWork = () => {
   return (
     <>
       <Navbar />
-      <div className="heading pl-28">OUR WORK</div>
+      <div className="HT heading pl-28">OUR WORK</div>
       <div className="container">
         <aside className="sidebar">
           <ul>

@@ -1,4 +1,4 @@
-html, body {
+ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -16,21 +16,36 @@ html, body, * {
   font-family: 'K2D', sans-serif;
 }
 
-.carousal{
+.carousal {
+    /* remove these lines:
     background-image: url('/images/Carousal.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100%; /* use 100% to avoid scrollbar/overflow issues from 100vw */
-    margin: 0 auto;  
+    */
+    width: 100%;
+    height: 70vh;
     display: flex;
-    align-items: center;
-    display: block;
     position: relative;
     left: 0;
     top: 0;
-    overflow: hidden; /* optional: prevents visual overflow */
-    padding-inline: 0; /* let .left control internal padding */
+    overflow: hidden; /* ensure gradient stays within bounds */
+}
+
+/* Position the AnimatedGradient component absolutely within carousel */
+.carousal > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Ensure carousel content stays above the gradient */
+.carousal .left {
+    position: relative;
+    z-index: 1;
 }
 
 h5{
@@ -158,7 +173,7 @@ h2{
 .whatwedo {
   display: flex;
   align-items: center;
-  padding-block: 2rem;
+  padding-block-start: 2rem;
 }
 
 .heading{
@@ -174,7 +189,7 @@ h2{
 
 .testimonials
 {
-  padding: 40px 0;
+  padding: 64px 0;
   color: #434343;
   text-align: center;
 }

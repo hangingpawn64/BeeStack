@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const WebFrontend = () => {
   return (
     <>
+        <div className="jobs-page">
       <Navbar />
       <div className="heading pl-28">CAREERS</div>
       <div className="container">
@@ -124,6 +125,7 @@ const WebFrontend = () => {
         </main>
       </div>
       <Footer />
+    </div>
     </>
   );
 };

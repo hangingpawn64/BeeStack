@@ -112,6 +112,9 @@
     flex: 1;
     padding: 60px 80px 60px 60px;
     background-color: transparent;
+
+    /* changed: ensure children are left-aligned horizontally */
+    align-items: flex-start;
 }
 
 .tagline {
@@ -120,19 +123,11 @@
     margin-bottom: 15px;
 }
 
-h1 {
+.HT h1 {
     font-size: 3rem;
     color: #0d7377;
     font-weight: 600;
     margin-bottom: 1rem;
-}
-
-.devices-container {
-    text-align: center;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
 }
 
 .section {
@@ -145,8 +140,12 @@ h1 {
     margin-bottom: 25px;
     font-weight: 600;
     display: flex;
-    align-items: center;
+    /* changed: use valid flex alignment and ensure left alignment */
+    align-items: center;     /* vertical centering of icon + text */
+    justify-content: flex-start;
     gap: 10px;
+    width: 100%;
+    text-align: left;
 }
 
 .icon {

@@ -5,16 +5,25 @@ import "./HomePage.css";
 import members from "../work.json";
 import Card from "../components/Cards";
 import Footer from "../components/Footer";
+import AnimatedGradient from "../components/Carousal";
+import Stack from "../components/Stack";
 
 const HomePage = () => {
   return (
     <>
+      <div className="homepage">
       <Navbar />
       <div className="carousal flex">
-        <div className="left flex flex-col pt-24 pl-28 ">
-          <h5 className="mb-4">Trusted by 100+ Business</h5>
-          <h1 className="BuildSystemsHeading">
-            <b>Build Systems That Move<br />Ideas Forward.</b>
+        {/* Add AnimatedGradient as background */}
+        <AnimatedGradient />
+        <div className="left flex flex-col pt-24 pl-28">
+          <h5>Trusted by 100+ Business</h5>
+          <h1>
+            <b>
+              Build Systems That Move
+              <br />
+              Ideas Forward.
+            </b>
           </h1>
           <h2> <br />BeeStack is a next-gen technology company crafting intelligent,<br />
             scalable, and future-ready software solutions.<br />
@@ -31,6 +40,9 @@ const HomePage = () => {
               <b>Our Services</b>
             </button>
           </div>
+        </div>
+        <div className="right flex items-center">
+                  <Stack />
         </div>
       </div>
 
@@ -59,6 +71,7 @@ const HomePage = () => {
         <TestimonialSlider />
 
   <Footer />
+  </div>
     </>
   );
 };

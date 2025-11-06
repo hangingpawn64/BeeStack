@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const IOS = () => {
   return (
     <>
+        <div className="jobs-page">
       <Navbar />
       <div className="heading pl-28">CAREERS</div>
       <div className="container">
@@ -73,6 +74,7 @@ const IOS = () => {
         </main>
       </div>
       <Footer />
+      </div>
     </>
   );
 };
