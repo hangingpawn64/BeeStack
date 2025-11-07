@@ -33,13 +33,17 @@ export default function AnimatedGradient() {
 
     let t = 0;
 
+    // Check if mobile screen size (768px and below)
+    const isMobile = () => window.innerWidth <= 768;
+
     const run = () => {
       for (let x = 0; x <= 35; x++) {
         for (let y = 0; y <= 35; y++) {
           col(x, y, R(x, y, t) * brightness, G(x, y, t) * brightness, B(x, y, t) * brightness);
         }
       }
-      t += 0.06;
+      // Use 0.03 for mobile, 0.06 for desktop
+      t += isMobile() ? 0.03 : 0.06;
       requestAnimationFrame(run);
     };
 
