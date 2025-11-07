@@ -31,6 +31,13 @@
     max-width: 1540px;
 }
 
+.devices-container{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+}
+
 /* Vertical line between sidebar and main content */
 .container::before {
     content: '';
