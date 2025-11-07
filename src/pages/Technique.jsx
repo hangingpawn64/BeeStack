@@ -26,7 +26,7 @@ const Technique = () => {
             </li>
           </ul>
         </aside>
-        <main className="main-content">
+        <main className="main-content HT">
           <p className="tagline">
             <b>We build with clarity, speed, and precision.</b>
           </p>

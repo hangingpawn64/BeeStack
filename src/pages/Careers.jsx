@@ -1,5 +1,4 @@
 import React from "react";
-import "./Careers.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -23,7 +22,7 @@ const Careers = () => {
             </li>
           </ul>
         </aside>
-        <main className="main-content">
+        <main className="main-content HT">
           <p className="tagline">
             <b>Because Building Together is Fun</b>
           </p>

@@ -141,8 +141,8 @@
     font-weight: 600;
     display: flex;
     /* changed: use valid flex alignment and ensure left alignment */
-    align-items: center;     /* vertical centering of icon + text */
-    justify-content: flex-start;
+   /* vertical centering of icon + text */
+
     gap: 10px;
     width: 100%;
     text-align: left;

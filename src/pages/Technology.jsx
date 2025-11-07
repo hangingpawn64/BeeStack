@@ -27,7 +27,7 @@ const Technology = () => {
           </ul>
         </aside>
 
-        <main className="main-content">
+        <main className="main-content HT">
           <p className="tagline">
             <b>We are a core technology company.</b>
           </p>

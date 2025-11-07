@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import AnimatedGradient from "../components/Carousal";
 import Stack from "../components/Stack";
 
+
 const HomePage = () => {
   return (
     <>

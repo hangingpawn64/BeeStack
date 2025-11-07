@@ -20,7 +20,7 @@ const AboutUs = () => {
             </li>
           </ul>
         </aside>
-        <main className="main-content">
+        <main className="main-content HT">
           <p className="tagline">
             <b>
               Doing right by our clients, our team, and our users guides

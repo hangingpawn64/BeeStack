@@ -23,7 +23,7 @@ const CurrentOpenings = () => {
             </li>
           </ul>
         </aside>
-        <main className="main-content">
+        <main className="main-content HT">
           <p className="tagline">
             <b>A Great Place for Top Talent</b>
           </p>

@@ -28,7 +28,7 @@ const Products = () => {
           </ul>
         </aside>
 
-        <main className="main-content">
+        <main className="main-content HT">
           {/* Intro Section */}
           <p className="tagline">
             <b>We build impactful products that scale globally.</b>

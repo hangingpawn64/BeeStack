@@ -7,7 +7,7 @@ export default function AnimatedGradient() {
     const c = canvasRef.current;
     const ctx = c.getContext("2d");
 
-    const brightness = 0.3; // 0.0 = black, 1.0 = normal
+    const brightness = 0.4; // 0.0 = black, 1.0 = normal
     const col = (x, y, r, g, b) => {
       ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
       ctx.fillRect(x, y, 1, 1);

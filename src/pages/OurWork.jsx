@@ -26,7 +26,7 @@ const OurWork = () => {
             </li>
           </ul>
         </aside>
-        <main className="main-content">
+        <main className="main-content HT">
           <p className="tagline">
             <b>We make shipping great products simpler and faster.</b>
           </p>

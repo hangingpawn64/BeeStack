@@ -1,63 +1,84 @@
 @keyframes gradientShift {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 100% 100%; }
-    }
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
 
 @keyframes floatUpDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-34px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(var(--stack-size) * -0.1167)); } /* -35px @ 300px */
 }
 
 @keyframes floatDownUp {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(35px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(calc(var(--stack-size) * 0.1167)); } /* 35px @ 300px */
 }
 
-    .stack {
-      position: relative;
-      width: 300px;
-      height: 300px;
-      perspective: 800px;
-      transform: rotate(45deg);
-    }
+/* size variable controls all dimensions and offsets */
+:root {
+  --stack-size: 300px; /* default desktop size */
+}
 
-    .layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 4rem;
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(25px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-      transform-origin: center;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      transform: rotate(45deg);
-    }
+/* stack container */
+.stack {
+  position: relative;
+  width: var(--stack-size);
+  height: var(--stack-size);
+  perspective: 800px;
+  transform: rotate(45deg);
+  margin: 0 auto;
+}
 
-    .layer:nth-child(1) {
-      transform: translateX(35px) translateY(35px);
-      opacity: 0.6;
-      animation: floatDownUp 3s ease-in-out infinite;
-    }
+/* layers share same base styling */
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4rem;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: rotate(45deg);
+}
 
-    .layer:nth-child(2) {
-      transform: translateX(70px) translateY(70px);
-      opacity: 0.8;
-      animation: floatUpDown 3s ease-in-out infinite;
-    }
+/* offsets expressed relative to --stack-size */
+.layer:nth-child(1) {
+  transform: translateX(calc(var(--stack-size) * 0.1167)) translateY(calc(var(--stack-size) * 0.1167));
+  opacity: 0.6;
+  animation: floatDownUp 6s ease-in-out infinite;
+}
 
-    .layer:nth-child(3) {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
+.layer:nth-child(2) {
+  transform: translateX(calc(var(--stack-size) * 0.2333)) translateY(calc(var(--stack-size) * 0.2333));
+  opacity: 0.8;
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
+.layer:nth-child(3) {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* RESPONSIVE: scale down progressively */
+@media (max-width: 1200px) {
+  :root { --stack-size: 260px; } /* slightly smaller on large tablets/desktop */
+}
+
+@media (max-width: 992px) {
+  :root { --stack-size: 220px; } /* tablet */
+}
+
+@media (max-width: 768px) {
+  :root { --stack-size: 180px; } /* small tablet / large phone */
+}
+
+/* hide the stack entirely on small mobile screens to free space */
+@media (max-width: 480px) {
+  .stack {
+    display: none;
+  }
+}
 

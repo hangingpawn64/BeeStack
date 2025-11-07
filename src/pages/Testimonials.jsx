@@ -20,7 +20,7 @@ const Testimonials = () => {
             </li>
           </ul>
         </aside>
-        <main className="main-content">
+        <main className="main-content HT">
           <p className="tagline">
             <b>What Our Clients Say</b>
           </p>
