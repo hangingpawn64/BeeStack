@@ -7,6 +7,7 @@
   max-width: min(95vw, 90rem);
   margin: 0 auto;
   padding: clamp(0.5rem, 2vw, 1.5rem);
+  align-items: stretch; /* ensure all cards have equal height */
 }
 
 /* card: enforce width-driven sizing and a consistent height:width = 3:4
@@ -14,6 +15,7 @@
 .card {
   background-color: #E7ECF7;
   width: 100%;
+  height: 100%; /* ensure equal height in grid */
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.18);
@@ -22,6 +24,7 @@
   transition: transform 0.2s ease;
   aspect-ratio: 4 / 3;
   box-sizing: border-box;
+  min-height: 0; /* allow grid to control sizing */
 }
 
 .card-photo {
@@ -87,15 +90,50 @@
     column-gap: clamp(0.75rem, 3vw, 2rem);
     row-gap: clamp(0.75rem, 3vw, 2rem);
     padding: clamp(0.5rem, 3vw, 2rem);
+    align-items: stretch; /* ensure equal card heights */
   }
   .card {
+    /* 2x2 grid layout: a11=heading, a12=image, a21+a22=paragraph */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: clamp(0.5rem, 2vw, 0.75rem);
     aspect-ratio: 4 / 3;
+    padding: clamp(0.5rem, 2.5vw, 0.75rem);
+    height: 100%; /* ensure equal height */
+  }
+  .card-photo {
+    grid-column: 2; /* a12 - top right */
+    grid-row: 1;
+    width: 100%;
+    max-height: clamp(3rem, 12vw, 5rem);
+    padding: 0;
+    justify-self: end;
+    align-self: start;
+    object-fit: contain;
+  }
+  .card-details {
+    grid-column: 1; /* a11 - top left for heading */
+    grid-row: 1;
+    padding: 0;
+    display: contents; /* allow children to be positioned in grid */
   }
   .card-details h3 {
-    font-size: clamp(0.98rem, 2.2vw, 1.08rem);
+    grid-column: 1; /* a11 - top left */
+    grid-row: 1;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    align-self: start;
   }
   .card-details p {
-    font-size: clamp(0.82rem, 2.1vw, 0.92rem);
+    grid-column: 1 / -1; /* a21+a22 - spans both columns in row 2 */
+    grid-row: 2;
+    font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+    padding: 0;
+    margin: 0;
+    width: 100%;
   }
 }
 
@@ -105,44 +143,61 @@
     grid-template-columns: repeat(2, 1fr);
     padding: clamp(0.5rem, 3vw, 1rem);
     column-gap: clamp(0.5rem, 3vw, 1rem);
+    row-gap: clamp(0.75rem, 3vw, 1.5rem);
+    align-items: stretch; /* ensure equal card heights */
   }
   .card {
-    /* switch to grid to place text left and icon right */
+    /* 2x2 grid layout: a11=heading, a12=image, a21+a22=paragraph */
     display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    column-gap: clamp(0.5rem, 3vw, 0.75rem);
-    aspect-ratio: unset; /* allow content-driven height on tiny screens */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: clamp(0.4rem, 2vw, 0.6rem);
+    aspect-ratio: 4 / 3;
     padding: clamp(0.5rem, 3vw, 0.75rem);
+    height: 100%; /* ensure equal height */
     max-width: 100%;
     min-width: 0;
   }
+  .card-photo {
+    grid-column: 2; /* a12 - top right */
+    grid-row: 1;
+    width: 100%;
+    max-height: clamp(2.5rem, 14vw, 4rem);
+    padding: 0;
+    justify-self: end;
+    align-self: start;
+    object-fit: contain;
+  }
   .card-details {
-    padding: 0; /* grid handles spacing */
+    grid-column: 1; /* a11 - top left for heading */
+    grid-row: 1;
+    padding: 0;
     width: 100%;
     min-width: 0;
     word-break: break-word;
     overflow-wrap: break-word;
+    display: contents; /* allow children to be positioned in grid */
   }
   .card-details h3 {
+    grid-column: 1; /* a11 - top left */
+    grid-row: 1;
     max-width: 100%;
     padding: 0;
-    font-size: clamp(0.95rem, 4vw, 1.05rem); /* smaller heading on mobile */
+    margin: 0;
+    font-size: clamp(0.85rem, 2.2vw, 1rem);
     line-height: 1.15;
+    align-self: start;
   }
   .card-details p {
-    font-size: clamp(0.8rem, 3.4vw, 0.95rem);
+    grid-column: 1 / -1; /* a21+a22 - spans both columns in row 2 */
+    grid-row: 2;
+    font-size: clamp(0.7rem, 2vw, 0.85rem);
     white-space: normal;
     word-break: break-word;
     overflow-wrap: break-word;
     display: block;
     width: 100%;
-  }
-  .card-photo {
-    width: clamp(2.5rem, 16vw, 4.5rem);
-    height: clamp(2.5rem, 16vw, 4.5rem);
-    padding: 0; /* remove large paddings so it fits on the right */
-    justify-self: end; /* push icon to right side */
-    object-fit: contain;
+    padding: 0;
+    margin: 0;
   }
 }

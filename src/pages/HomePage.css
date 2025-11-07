@@ -17,19 +17,15 @@ html, body, * {
 }
 
 .carousal {
-    /* remove these lines:
-    background-image: url('/images/Carousal.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    */
     width: 100%;
-    height: 70vh;
+    min-height: 70vh;
+    height: auto;
     display: flex;
     position: relative;
     left: 0;
     top: 0;
     overflow: hidden; /* ensure gradient stays within bounds */
+    align-items: stretch;
 }
 
 /* Position the AnimatedGradient component absolutely within carousel */
@@ -46,6 +42,17 @@ html, body, * {
 .carousal .left {
     position: relative;
     z-index: 1;
+    flex: 1 1 auto;
+}
+
+.carousal .right {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: var(--content-pad);
 }
 
 h5{
@@ -82,15 +89,17 @@ h5{
 }
 
 h1{
-    font-size: clamp(1.6rem, 6vw, 3rem);
-    line-height: 1.15;
+    font-size: clamp(1.8rem, 5.5vw, 3rem);
+    line-height: 1.2;
     color: #fff;
+    margin: 0;
 }
 
 h2{
-    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
-    line-height: 1.35;
+    font-size: clamp(1rem, 3.2vw, 1.15rem);
+    line-height: 1.4;
     color: #fff;
+    margin: 0;
 }
 
 /* button styles */
@@ -103,15 +112,19 @@ h2{
 
 .btn{
     cursor: pointer;
-    font-size: clamp(0.95rem, 3.8vw, 1.2rem);
-    padding: clamp(0.45rem, 2.2vw, 0.6rem) clamp(0.8rem, 3vw, 1.1rem);
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
+    padding: clamp(0.5rem, 2vw, 0.65rem) clamp(1rem, 3.5vw, 1.25rem);
     border-radius: 0.75rem;
     border: none;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
     white-space: nowrap;
-    margin-right: clamp(0.5rem, 4vw, 2rem);
-    margin-top: clamp(0.25rem, 2.5vw, 1rem);
+    margin-right: clamp(0.5rem, 3vw, 1.5rem);
+    margin-top: 0;
+    min-height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* consultation button: pink background, black text */
@@ -141,11 +154,13 @@ h2{
 .left {
   width: 100%;
   max-width: 1080px; /* limits how wide the content can grow */
-  padding: clamp(1rem, 6vw, 4rem); /* responsive padding instead of fixed pl-28 */
+  padding: clamp(1rem, 5vw, 3.5rem) 0 clamp(1rem, 4vw, 2.5rem) 0; /* top and bottom padding */
+  padding-left: var(--content-pad);
   display: flex;
   flex-direction: column;
-  gap: clamp(0.5rem, 2.6vw, 1rem);
-  padding-left: var(--content-pad);
+  gap: clamp(0.75rem, 2.5vw, 1.25rem);
+  justify-content: center;
+  min-height: 70vh;
 }
 
 /* ensure headings and paragraphs wrap */
@@ -161,8 +176,10 @@ h2{
 /* buttons wrap instead of overflowing */
 .buttons {
   display: flex;
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 2vw, 0.75rem);
   flex-wrap: wrap;
+  margin-top: clamp(0.75rem, 2vw, 1.5rem);
+  align-items: flex-start;
 }
 
 :root {
@@ -255,19 +272,64 @@ h2{
 
 /* Tablet: reveal less of side cards, keep center fully visible */
 @media (max-width: 992px) {
-  .slider-viewport { width: 92%; }
+  .slider-viewport { width: 85%; }
   .slide.center .testimonial { transform: scale(1.04); }
-  .slide.side .testimonial { transform: scale(0.74); }
+  .slide.side .testimonial { transform: scale(0.75); opacity: 0.85; }
   .testimonial { padding: clamp(0.875rem, 2.6vw, 1.25rem); }
   .name { font-size: clamp(0.95rem, 2.4vw, 1.15rem); }
 }
 
 /* Mobile: center card dominant; side cards peek slightly */
 @media (max-width: 768px) {
-  .slider-viewport { width: 88%; }
-  .slide.center .testimonial { transform: scale(1.03); }
-  .slide.side .testimonial { transform: scale(0.62); opacity: 0.9; }
-  .testimonial { padding: clamp(0.75rem, 3.5vw, 1rem); }
+  .slider-viewport { 
+    width: 75%; /* narrower viewport to show mostly center card */
+    padding-inline: clamp(0.5rem, 2vw, 1rem);
+  }
+  .slide.center .testimonial { 
+    transform: scale(1.02); 
+    z-index: 2;
+  }
+  .slide.side .testimonial { 
+    transform: scale(0.7); 
+    opacity: 0.8; 
+  }
+  .testimonial { 
+    padding: clamp(0.75rem, 3.5vw, 1rem); 
+  }
+  .quote {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+  .name {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  }
+}
+
+/* Small mobile: even narrower, center card fully visible */
+@media (max-width: 480px) {
+  .slider-viewport { 
+    width: 70%; /* very narrow to show mostly center */
+    padding-inline: clamp(0.25rem, 1.5vw, 0.75rem);
+  }
+  .slide.center .testimonial { 
+    transform: scale(1); 
+  }
+  .slide.side .testimonial { 
+    transform: scale(0.65); 
+    opacity: 0.75; 
+  }
+  .testimonial { 
+    padding: clamp(0.6rem, 3vw, 0.9rem); 
+  }
+  .quote {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+  .name {
+    font-size: clamp(0.85rem, 2.2vw, 1rem);
+    margin-bottom: 0.5em;
+  }
+  .stars {
+    margin: clamp(0.4rem, 2vw, 0.8rem) 0;
+  }
 }
 
 .testimonial
@@ -340,22 +402,48 @@ h2{
 /* Mobile-first reductions so buttons are visible on load */
 @media (max-width: 768px) {
   :root { --content-pad: 1rem; }
-  .left {
-    padding: clamp(0.75rem, 5vw, 1.25rem);
-    padding-left: var(--content-pad);
+  .carousal {
+    flex-direction: column;
+    min-height: auto;
   }
-  h1 { font-size: clamp(1.35rem, 6.5vw, 1.8rem); }
-  h2 { font-size: clamp(0.9rem, 3.8vw, 1rem); }
-  h5 { font-size: clamp(0.85rem, 3.6vw, 1rem); }
-  .buttons { margin-top: 0.5rem; }
-  .btn { margin-top: 0.4rem; }
+  .left {
+    padding: clamp(1.5rem, 5vw, 2rem) 0 clamp(1rem, 4vw, 1.5rem) 0;
+    padding-left: var(--content-pad);
+    min-height: auto;
+  }
+  .carousal .right {
+    padding: 1rem var(--content-pad);
+    order: -1; /* Stack appears before text on mobile */
+  }
+  h1 { font-size: clamp(1.5rem, 6vw, 2rem); }
+  h2 { font-size: clamp(0.95rem, 3.5vw, 1.1rem); }
+  h5 { font-size: clamp(0.9rem, 3.2vw, 1.05rem); }
+  .buttons { 
+    margin-top: clamp(1rem, 3vw, 1.5rem);
+    width: 100%;
+  }
+  .btn { 
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 480px) {
   :root { --content-pad: 0.75rem; }
-  .left { padding-left: var(--content-pad); }
-  h1 { font-size: clamp(1.2rem, 7vw, 1.6rem); }
-  h2 { font-size: clamp(0.85rem, 4vw, 0.95rem); }
-  h5 { font-size: clamp(0.8rem, 4vw, 0.95rem); }
-  .buttons { gap: 0.5rem; }
+  .left { 
+    padding: clamp(1rem, 4vw, 1.5rem) 0;
+    padding-left: var(--content-pad);
+  }
+  h1 { font-size: clamp(1.4rem, 6.5vw, 1.8rem); }
+  h2 { font-size: clamp(0.9rem, 3.8vw, 1.05rem); }
+  h5 { font-size: clamp(0.85rem, 3.5vw, 1rem); }
+  .buttons { 
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
 }

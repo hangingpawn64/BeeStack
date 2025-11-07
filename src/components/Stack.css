@@ -64,15 +64,18 @@
 
 /* RESPONSIVE: scale down progressively */
 @media (max-width: 1200px) {
-  :root { --stack-size: 260px; } /* slightly smaller on large tablets/desktop */
+  :root { --stack-size: clamp(200px, 22vw, 260px); }
 }
 
 @media (max-width: 992px) {
-  :root { --stack-size: 220px; } /* tablet */
+  :root { --stack-size: clamp(160px, 20vw, 220px); }
 }
 
 @media (max-width: 768px) {
-  :root { --stack-size: 180px; } /* small tablet / large phone */
+  :root { --stack-size: clamp(140px, 25vw, 180px); }
+  .stack {
+    margin: 1rem auto;
+  }
 }
 
 /* hide the stack entirely on small mobile screens to free space */

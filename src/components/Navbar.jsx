@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const isActive = (path) => {
     if (path === "/") return location.pathname === "/";
@@ -43,38 +38,6 @@ const Navbar = () => {
         <div className={`nav-item ${isActive("/contact-us") ? "active" : ""}`}>
           <Link to="/contact-us">Contact Us</Link>
           <div className={`underline ${isActive("/contact-us") ? "show" : ""}`}></div>
-        </div>
-      </div>
-
-      {/* Mobile Hamburger Menu */}
-      <div className="mobile-menu">
-        <button
-          className={`hamburger ${isMenuOpen ? "active" : ""}`}
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <div className={`mobile-nav-items ${isMenuOpen ? "show" : ""}`}>
-          <div>
-            <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          </div>
-          <div>
-            <Link to="/our-work" onClick={() => setIsMenuOpen(false)}>Our Work</Link>
-          </div>
-          <div>
-            <Link to="/about-us" onClick={() => setIsMenuOpen(false)}>About Us</Link>
-          </div>
-          <div>
-            <Link to="/careers" onClick={() => setIsMenuOpen(false)}>Careers</Link>
-          </div>
-          <div className="aboutus">
-            <Link to="/contact-us" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-            <div className="underline border-3 border-white"></div>
-          </div>
         </div>
       </div>
     </div>
