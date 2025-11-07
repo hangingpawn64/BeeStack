@@ -21,7 +21,8 @@
     gap: clamp(0.75rem, 2.5vw, 2rem);
   }
   
-  .footer-links a {
+  .footer-links a,
+  .footer-links a:visited {
     text-decoration: none;
     color: #000;
     transition: opacity 0.2s ease;

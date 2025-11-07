@@ -17,6 +17,7 @@ import IOS from './pages/jobs/IOS';
 import WebFrontend from './pages/jobs/WebFrontend';
 import WebBackend from './pages/jobs/WebBackend';
 import ContactUs from './pages/ContactUs';
+import Sitemap from './pages/Sitemap';
 
 function App() {
 
@@ -80,6 +81,10 @@ function App() {
     {
       path: "/contact-us",
       element: <ContactUs />
+    },
+    {
+      path: "/sitemap",
+      element: <Sitemap />
     },
   ]);
 

@@ -190,6 +190,8 @@
     .container {
         flex-direction: column;
         gap: 0;
+        padding-left: clamp(0.75rem, 4vw, 1rem);
+        padding-right: clamp(0.75rem, 4vw, 1rem);
     }
     
     .container::before {
@@ -200,36 +202,124 @@
         width: 100%;
         position: relative;
         height: auto;
-        padding: 30px 20px;
-        background: linear-gradient(135deg, #f5a623 0%, #f7b844 100%);
+        min-height: 0 !important; /* Override desktop min-height: 80vh */
+        max-height: none; /* Remove any max-height constraints */
+        padding: 0;
+        background: transparent;
         top: 0;
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        border: none;
+        margin-bottom: clamp(1rem, 3vw, 1.5rem); /* Reduced margin */
+        align-self: flex-start; /* Only take space needed */
+        flex-shrink: 0; /* Don't shrink */
     }
     
-    .sidebar h2 {
-        font-size: 24px;
-        margin-bottom: 15px;
+    .sidebar ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        background: linear-gradient(to right, 
+            #FCAB1E 0%, 
+            #f7b844 25%, 
+            rgba(247, 184, 68, 0.6) 50%,
+            rgba(247, 184, 68, 0.3) 75%,
+            rgba(247, 184, 68, 0.1) 100%
+        );
+        border-radius: 999px; /* Pill shape */
+        padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.5rem);
+        gap: clamp(0.5rem, 2vw, 1rem);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        margin: 0; /* Remove any default margins */
+        width: 100%; /* Ensure it takes full width */
+        box-sizing: border-box;
+    }
+    
+    .sidebar ul::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
     }
     
     .sidebar li {
-        font-size: 20px;
-        margin-bottom: 10px;
+        font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+        margin: 0; /* Remove all margins */
+        margin-bottom: 0;
+        white-space: nowrap;
+        flex-shrink: 0;
+        position: relative;
+        line-height: 1.2; /* Tighter line height */
+    }
+    
+    .sidebar li a {
+        display: block;
+        padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.25rem);
+        border-radius: 999px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        line-height: 1.2; /* Tighter line height */
+        margin: 0; /* Remove any margins */
+    }
+    
+    .sidebar li.highlighted {
+        opacity: 1;
+        font-weight: 700;
+    }
+    
+    .sidebar li.highlighted a {
+        background: #FCAB1E;
+        color: #000;
+        box-shadow: 0 2px 8px rgba(252, 171, 30, 0.3);
+    }
+    
+    .sidebar li.unhighlighted {
+        opacity: 0.6;
+        font-weight: 600;
+    }
+    
+    .sidebar li.unhighlighted a {
+        color: rgba(0, 0, 0, 0.7);
+        background: transparent;
+    }
+    
+    .sidebar li:hover {
+        opacity: 1;
+    }
+    
+    .sidebar li.unhighlighted:hover a {
+        background: rgba(252, 171, 30, 0.2);
+        color: #000;
     }
     
     .main-content {
-        padding: 30px 20px;
+        padding: 30px 0;
     }
     
     h1 {
-        font-size: 32px;
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
         margin-bottom: 40px;
     }
     
     .section-title {
-        font-size: 22px;
+        font-size: clamp(1.1rem, 3.5vw, 1.5rem);
     }
     
     .section p {
-        font-size: 16px;
+        font-size: clamp(0.95rem, 2.8vw, 1.1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar ul {
+        padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.5rem, 2.5vw, 1rem);
+        gap: clamp(0.4rem, 1.5vw, 0.75rem);
+    }
+    
+    .sidebar li {
+        font-size: clamp(0.75rem, 2.2vw, 0.95rem);
+    }
+    
+    .sidebar li a {
+        padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.6rem, 2.5vw, 1rem);
     }
 }

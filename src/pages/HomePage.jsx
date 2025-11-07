@@ -16,7 +16,7 @@ const HomePage = () => {
       <Navbar />
       <div className="carousal flex">
         {/* Add AnimatedGradient as background */}
-        <AnimatedGradient />
+        <AnimatedGradient className="threestacks" />
         <div className="left flex flex-col pt-24 pl-28">
           <h5>Trusted by 100+ Business</h5>
           <h1>

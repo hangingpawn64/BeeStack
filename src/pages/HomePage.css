@@ -290,13 +290,13 @@ h2{
 /* ---------- Responsiveness for slider visibility ---------- */
 /* Desktop large: show most of side cards */
 @media (max-width: 1200px) {
-  .slider-viewport { width: 96%; }
+  .slider-viewport { width: 100%; }
   .slide.center .testimonial { transform: scale(1.05); }
 }
 
 /* Tablet: reveal less of side cards, keep center fully visible */
 @media (max-width: 992px) {
-  .slider-viewport { width: 85%; }
+  .slider-viewport { width: 100%; }
   .slide.center .testimonial { transform: scale(1.04); }
   .slide.side .testimonial { transform: scale(0.75); opacity: 0.85; }
   .testimonial { padding: clamp(0.875rem, 2.6vw, 1.25rem); }
@@ -306,7 +306,7 @@ h2{
 /* Mobile: center card dominant; side cards peek slightly */
 @media (max-width: 768px) {
   .slider-viewport { 
-    width: 75%; /* narrower viewport to show mostly center card */
+    width: 100%; /* narrower viewport to show mostly center card */
     padding-inline: clamp(0.5rem, 2vw, 1rem);
   }
   .slide.center .testimonial { 
@@ -402,6 +402,7 @@ h2{
 
 @media screen and (max-width: 960px)
 {
+
   .buttons{
     display: flex;
     flex-direction: column;
@@ -416,7 +417,13 @@ h2{
 
 /* responsive tweak for narrow screens */
 @media (max-width: 900px) {
-  :root { --content-pad: clamp(1rem, 4vw, 1.25rem); }
+  /* Hide AnimatedGradient when layout shifts */
+  .carousal > :first-child {
+    display: none;
+  }
+  .threestacks{
+    display: none;
+  }
   .heading {
     padding-left: var(--content-pad);
     padding-right: var(--content-pad);
@@ -427,6 +434,10 @@ h2{
 /* Mobile-first reductions so buttons are visible on load */
 @media (max-width: 768px) {
   :root { --content-pad: clamp(0.75rem, 4vw, 1rem); }
+  /* Hide AnimatedGradient on mobile when space is insufficient */
+  .carousal > :first-child {
+    display: none;
+  }
   .carousal {
     flex-direction: column;
     min-height: auto;
