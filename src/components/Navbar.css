@@ -18,13 +18,12 @@
   padding: 0 var(--nav-gutter);
   padding-left: 200px;
   padding-right: 200px;
-  padding-bottom: 0.5rem; /* Add space at bottom so underline doesn't touch carousel */
   width: min(var(--nav-max-width), 100%);
   margin: 0 auto;
   box-sizing: border-box;
   height: var(--nav-height);
   background: #F1F4F9;
-  position: sticky;
+  position: fixed;
   top: 0; /* Added this - CRITICAL for sticky to work */
   z-index: 1000; /* Added this - keeps navbar above other content */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Optional: adds subtle shadow */
@@ -39,7 +38,7 @@
   display: block;
 }
 
-/* The site name immediately to the right of logo */
+/* The site na margin-bottom: 2.5rem; /* Add space at bottom so underline doesn't touch carousel */me immediately to the right of logo */
 .navname {
   margin-left: 0.5rem;
   font-weight: 700;
