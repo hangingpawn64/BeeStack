@@ -67,9 +67,13 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
+        <Link to="/">
         <img src="/logo.png" alt="BeeStack logo" />
+        </Link>
       </div>
+      <Link to="/">
       <div className="navname">BeeStack</div>
+      </Link>
 
       {/* Desktop Navigation */}
       <div className="nav-items desktop-nav">
