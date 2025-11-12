@@ -50,7 +50,7 @@ const HomePage = () => {
       </div>
 
       <div className="whatwedo">
-        <div className="heading pl-28">WHAT WE DO</div>
+        <div className="headingHP pl-28">WHAT WE DO</div>
       </div>
 
        <div className="card-grid">

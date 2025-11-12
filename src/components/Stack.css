@@ -1,87 +1,94 @@
-@keyframes gradientShift {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
-}
-
-@keyframes floatUpDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(calc(var(--stack-size) * -0.1167)); } /* -35px @ 300px */
-}
-
-@keyframes floatDownUp {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(calc(var(--stack-size) * 0.1167)); } /* 35px @ 300px */
-}
-
-/* size variable controls all dimensions and offsets */
-:root {
-  --stack-size: 300px; /* default desktop size */
-}
-
-/* stack container */
+/* Stack container */
 .stack {
   position: relative;
-  width: var(--stack-size);
-  height: var(--stack-size);
-  perspective: 800px;
-  transform: rotate(45deg);
-  margin: 0 auto;
+  width: 500px;
+  height: 321px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  animation: rotate3D 6s ease-in-out infinite alternate;
 }
 
-/* layers share same base styling */
+/* Common style for each layer */
 .layer {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 4rem;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(25px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  transform-origin: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: rotate(45deg);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  clip-path: url(#roundedDiamond);
+  transition: all 0.8s ease;
 }
 
-/* offsets expressed relative to --stack-size */
-.layer:nth-child(1) {
-  transform: translateX(calc(var(--stack-size) * 0.1167)) translateY(calc(var(--stack-size) * 0.1167));
-  opacity: 0.6;
-  animation: floatDownUp 6s ease-in-out infinite;
+/* Depth positioning */
+.layer1 {
+  transform: translateY(0px) translateZ(0px);
+  animation: moveTop 3s ease-in-out infinite alternate;
+}
+.layer2 {
+  transform: translateY(50px) translateZ(-40px);
+}
+.layer3 {
+  transform: translateY(100px) translateZ(-80px);
+  animation: moveBottom 3s ease-in-out infinite alternate;
 }
 
-.layer:nth-child(2) {
-  transform: translateX(calc(var(--stack-size) * 0.2333)) translateY(calc(var(--stack-size) * 0.2333));
-  opacity: 0.8;
-  animation: floatUpDown 6s ease-in-out infinite;
-}
-
-.layer:nth-child(3) {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-}
-
-/* RESPONSIVE: scale down progressively */
-@media (max-width: 1200px) {
-  :root { --stack-size: clamp(200px, 22vw, 260px); }
-}
-
-@media (max-width: 992px) {
-  :root { --stack-size: clamp(160px, 20vw, 220px); }
-}
-
-@media (max-width: 768px) {
-  :root { --stack-size: clamp(140px, 25vw, 180px); }
-  .stack {
-    margin: 1rem auto;
+/* Floating animations */
+@keyframes moveTop {
+  0% {
+    transform: translateY(0px) translateZ(0px);
+  }
+  100% {
+    transform: translateY(-20px) translateZ(20px);
   }
 }
 
-/* hide the stack entirely on small mobile screens to free space */
-@media (max-width: 480px) {
+@keyframes moveBottom {
+  0% {
+    transform: translateY(100px) translateZ(-80px);
+  }
+  100% {
+    transform: translateY(120px) translateZ(-100px);
+  }
+}
+
+/* Overall subtle tilt */
+@keyframes rotate3D {
+  0% {
+    transform: rotateX(10deg) rotateY(-10deg);
+  }
+  100% {
+    transform: rotateX(-10deg) rotateY(10deg);
+  }
+}
+
+/* ---------- Responsive scaling ---------- */
+
+/* Medium screens (tablet) */
+@media (max-width: 1024px) {
+  .stack {
+    width: 311px;
+    height: 200px;
+  }
+}
+
+/* Small screens (mobile landscape) */
+@media (max-width: 768px) {
+  .stack {
+    width: 3233px;
+    height: 150px;
+  }
+}
+
+/* Hide on very small screens (mobile portrait) */
+@media (max-width: 640px) {
   .stack {
     display: none;
   }
+    .stack-container {
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
-

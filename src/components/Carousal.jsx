@@ -43,7 +43,7 @@ export default function AnimatedGradient() {
         }
       }
       // Use 0.03 for mobile, 0.06 for desktop
-      t += isMobile() ? 0.03 : 0.06;
+      t += isMobile() ? 0.03 : 0.04;
       requestAnimationFrame(run);
     };
 

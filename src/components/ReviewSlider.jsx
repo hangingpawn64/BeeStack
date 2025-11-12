@@ -44,7 +44,7 @@ function ReviewSlider() {
       img: "https://randomuser.me/api/portraits/men/32.jpg",
     },
     {
-      name: "Shruti Kadam",
+      name: "Jayneet Bhingardeve",
       text: "“We launched faster than expected — the team truly understands product quality and deadlines.”",
       role: "Product Manager",
       stars: 5,
@@ -72,18 +72,18 @@ function ReviewSlider() {
       img: "https://randomuser.me/api/portraits/men/22.jpg",
     },
     {
-      name: "Aditi Deshmukh",
+      name: "Shruti Kadam",
       text: "“BeeStack helped us scale from prototype to production seamlessly — highly recommended.”",
       role: "Project Manager",
       stars: 5,
       img: "https://randomuser.me/api/portraits/women/55.jpg",
     },
     {
-      name: "Aniruddha Patil",
+      name: "Sachikaur Sidhu",
       text: "“They understood our vision perfectly and built a product beyond expectations.”",
       role: "Entrepreneur",
       stars: 4,
-      img: "https://randomuser.me/api/portraits/men/65.jpg",
+      img: "https://randomuser.me/api/portraits/women/65.jpg",
     },
   ];
 
@@ -125,10 +125,10 @@ function ReviewSlider() {
                       <svg
                         key={idx}
                         xmlns="http://www.w3.org/2000/svg"
-                        fill={idx < review.stars ? "#FFD700" : "none"}
+                        fill={idx < review.stars ? "#FCAB1E" : "none"}
                         stroke="#FFD700"
                         strokeWidth="1.5"
-                        viewBox="0 0 24 24"
+                        viewBox="0 0 20 20"
                         className="w-5 h-5 mx-0.5"
                       >
                         <path

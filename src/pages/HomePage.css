@@ -198,7 +198,7 @@ h2 {
   overflow-x: hidden;
 }
 
-.heading {
+.headingHP {
   padding-left: var(--content-pad);
   padding-right: var(--content-pad);
   margin: 0;
