@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+// import React, { useEffect, useMemo, useState } from "react";
 import AOS from 'aos';
 import Typewriter from 'typewriter-effect/dist/core';
 import Navbar from "../components/Navbar";
@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import AnimatedGradient from "../components/Carousal";
 import Stack from "../components/Stack";
 import Form from "../components/Form";
-
+import ReviewSLider from "../components/ReviewSlider";
 
 const HomePage = () => {
   return (
@@ -71,7 +71,8 @@ const HomePage = () => {
           </div>
 
         {/* Testimonial slider */}
-        <TestimonialSlider />
+          <ReviewSLider/>
+        {/* <TestimonialSlider /> */}
         <Form/>
 
   <Footer />
@@ -83,125 +84,125 @@ const HomePage = () => {
 export default HomePage;
 
 // --- Testimonial slider component ---
-const testimonials = [
-  {
-    name: 'Akshit Tupkar',
-    text: '“The professionalism and technical depth at BeeStack are unmatched. We felt like they were part of our own team.”',
-    stars: 5,
-  },
-  {
-    name: 'Sameer Chore',
-    text: '“BeeStack delivers peace of mind. Reliable, responsive, and focused on real results.”',
-    stars: 4,
-  },
-  {
-    name: 'Shruti Kadam',
-    text: '“We launched faster than expected — the team truly understands product quality and deadlines.”',
-    stars: 5,
-  },
-  {
-    name: 'Sanket Kokate',
-    text: '“Great communication and execution. Our stack is cleaner and much easier to maintain now.”',
-    stars: 5,
-  },
-  {
-    name: 'Vikramaditya Khupse',
-    text: '“From idea to delivery, the process was smooth and outcomes exceeded expectations.”',
-    stars: 5,
-  },
-  {
-    name: 'Jaykumar Gupta',
-    text: '“Engineering excellence with a product mindset — exactly what we needed.”',
-    stars: 5,
-  },
-];
+// const testimonials = [
+//   {
+//     name: 'Akshit Tupkar',
+//     text: '“The professionalism and technical depth at BeeStack are unmatched. We felt like they were part of our own team.”',
+//     stars: 5,
+//   },
+//   {
+//     name: 'Sameer Chore',
+//     text: '“BeeStack delivers peace of mind. Reliable, responsive, and focused on real results.”',
+//     stars: 4,
+//   },
+//   {
+//     name: 'Shruti Kadam',
+//     text: '“We launched faster than expected — the team truly understands product quality and deadlines.”',
+//     stars: 5,
+//   },
+//   {
+//     name: 'Sanket Kokate',
+//     text: '“Great communication and execution. Our stack is cleaner and much easier to maintain now.”',
+//     stars: 5,
+//   },
+//   {
+//     name: 'Vikramaditya Khupse',
+//     text: '“From idea to delivery, the process was smooth and outcomes exceeded expectations.”',
+//     stars: 5,
+//   },
+//   {
+//     name: 'Jaykumar Gupta',
+//     text: '“Engineering excellence with a product mindset — exactly what we needed.”',
+//     stars: 5,
+//   },
+// ];
 
-function StarRow({ count }) {
-  return (
-    <div className="stars">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <i key={i} className={i < count ? 'fas fa-star' : 'far fa-star'}></i>
-      ))}
-    </div>
-  );
-}
+// function StarRow({ count }) {
+//   return (
+//     <div className="stars">
+//       {Array.from({ length: 5 }).map((_, i) => (
+//         <i key={i} className={i < count ? 'fas fa-star' : 'far fa-star'}></i>
+//       ))}
+//     </div>
+//   );
+// }
 
-function TestimonialSlider() {
-  const total = testimonials.length; // 6
-  const [leftIndex, setLeftIndex] = useState(0); // index of the leftmost visible slide
-  const [isJumping, setIsJumping] = useState(false);
+// function TestimonialSlider() {
+//   const total = testimonials.length; // 6
+//   const [leftIndex, setLeftIndex] = useState(0); // index of the leftmost visible slide
+//   const [isJumping, setIsJumping] = useState(false);
 
-  // Build a track with extra clones at end for smooth wrap
-  const trackItems = useMemo(() => {
-    return [...testimonials, ...testimonials.slice(0, 3)];
-  }, []);
+//   // Build a track with extra clones at end for smooth wrap
+//   const trackItems = useMemo(() => {
+//     return [...testimonials, ...testimonials.slice(0, 3)];
+//   }, []);
 
-  // auto-advance every 2s
-  useEffect(() => {
-    const t = setInterval(() => {
-      setLeftIndex((i) => i + 1);
-    }, 2000);
-    return () => clearInterval(t);
-  }, []);
+//   // auto-advance every 2s
+//   useEffect(() => {
+//     const t = setInterval(() => {
+//       setLeftIndex((i) => i + 1);
+//     }, 2000);
+//     return () => clearInterval(t);
+//   }, []);
 
-  // After animating to the last clone step, jump back without visible snap
-  // Wait for the transform transition (600ms in CSS) to complete before resetting
-  useEffect(() => {
-    if (leftIndex === total) {
-      const timeout = setTimeout(() => {
-        setIsJumping(true);
-        setLeftIndex(0);
-        // allow one frame without transition, then re-enable
-        requestAnimationFrame(() => setIsJumping(false));
-      }, 610); // slightly longer than CSS transition to ensure completion
-      return () => clearTimeout(timeout);
-    }
-  }, [leftIndex, total]);
+//   // After animating to the last clone step, jump back without visible snap
+//   // Wait for the transform transition (600ms in CSS) to complete before resetting
+//   useEffect(() => {
+//     if (leftIndex === total) {
+//       const timeout = setTimeout(() => {
+//         setIsJumping(true);
+//         setLeftIndex(0);
+//         // allow one frame without transition, then re-enable
+//         requestAnimationFrame(() => setIsJumping(false));
+//       }, 610); // slightly longer than CSS transition to ensure completion
+//       return () => clearTimeout(timeout);
+//     }
+//   }, [leftIndex, total]);
 
-  // The center slide is the second in the viewport
-  const centerIndex = (leftIndex + 1) % total;
+//   // The center slide is the second in the viewport
+//   const centerIndex = (leftIndex + 1) % total;
 
-  const translatePercent = -(leftIndex * (100 / 3)); // move one slide = 33.333%
+//   const translatePercent = -(leftIndex * (100 / 3)); // move one slide = 33.333%
 
-  return (
-    <div className="testimonials">
-      <div className="testimonial-inner">
-        <div className="slider-viewport">
-          <div
-            className={`slider-track ${isJumping ? 'no-transition' : ''}`}
-            style={{ transform: `translateX(${translatePercent}%)` }}
-          >
-            {trackItems.map((item, i) => {
-              // Determine if this slide is visible and whether it's center
-              const rel = (i - leftIndex + total * 10) % total; // normalize
-              const isCenter = rel === 1; // second visible slot
-              const isSide = rel === 0 || rel === 2;
-              return (
-                <div key={i} className={`slide ${isCenter ? 'center' : isSide ? 'side' : ''}`}>
-                  <div className="testimonial">
-                    <div className="quote">"</div>
-                    <div className="name">{item.name}</div>
-                    <p>{item.text}</p>
-                    <StarRow count={item.stars} />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+//   return (
+//     <div className="testimonials">
+//       <div className="testimonial-inner">
+//         <div className="slider-viewport">
+//           <div
+//             className={`slider-track ${isJumping ? 'no-transition' : ''}`}
+//             style={{ transform: `translateX(${translatePercent}%)` }}
+//           >
+//             {trackItems.map((item, i) => {
+//               // Determine if this slide is visible and whether it's center
+//               const rel = (i - leftIndex + total * 10) % total; // normalize
+//               const isCenter = rel === 1; // second visible slot
+//               const isSide = rel === 0 || rel === 2;
+//               return (
+//                 <div key={i} className={`slide ${isCenter ? 'center' : isSide ? 'side' : ''}`}>
+//                   <div className="testimonial">
+//                     <div className="quote">"</div>
+//                     <div className="name">{item.name}</div>
+//                     <p>{item.text}</p>
+//                     <StarRow count={item.stars} />
+//                   </div>
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
 
-        {/* dots */}
-        <div className="slider-dots">
-          {Array.from({ length: total }).map((_, i) => (
-            <button
-              key={i}
-              className={`dot ${i === centerIndex ? 'active' : ''}`}
-              onClick={() => setLeftIndex((i - 1 + total) % total)}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+//         {/* dots */}
+//         <div className="slider-dots">
+//           {Array.from({ length: total }).map((_, i) => (
+//             <button
+//               key={i}
+//               className={`dot ${i === centerIndex ? 'active' : ''}`}
+//               onClick={() => setLeftIndex((i - 1 + total) % total)}
+//               aria-label={`Go to slide ${i + 1}`}
+//             />
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

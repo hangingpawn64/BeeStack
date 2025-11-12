@@ -169,19 +169,41 @@
 
 /* responsive: stack on small screens and restore normal flow */
 @media (max-width: 880px) {
+  /* stack and center both columns */
   .contact-section {
-    gap: 1rem;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;    /* center children horizontally */
+    justify-content: flex-start;
+    padding-inline: 1rem;   /* remove large left offset */
+    gap: 1rem;
   }
+
+  /* center heading text and allow it to wrap */
   .contact-heading {
+    width: 100%;
+    max-width: 720px;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    padding: 0;
   }
+  .contact-heading .heading { white-space: normal; }
+
+  /* make form centered and full-width within limits */
   .contact-form {
-    margin-left: 0;
-    max-width: 100%;
-    align-content: start; /* allow natural flow on mobile */
+    margin: 0 auto;         /* center the form block */
+    width: 100%;
+    max-width: 640px;       /* control form width */
+    align-content: start;   /* keep inputs from centering vertically if undesired */
+    box-sizing: border-box;
+    padding-inline: 0.5rem;
+  }
+
+  /* ensure inputs take full available width */
+  .contact-form input,
+  .contact-form textarea,
+  .get-in-touch-btn {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

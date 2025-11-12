@@ -210,6 +210,8 @@ h2 {
   max-width: 1080px;
   width: 100%;
   box-sizing: border-box;
+    justify-self: center;
+  align-self: center;
 }
 
 .testimonials {
@@ -224,11 +226,11 @@ h2 {
 }
 
 .testimonial-inner {
-  max-width: 90%;
+  max-width: 98%;
   margin: auto;
   overflow-x: hidden;
   overflow-y: hidden;
-  width: 90%;
+  width: 98%;
   box-sizing: border-box;
 }
 
@@ -339,14 +341,20 @@ h2 {
 .testimonial {
   background: #c9dcd1;
   border-radius: 1rem;
-
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
 }
-
+  .slide.center .testimonial {
+    max-width: 80vw;
+  aspect-ratio: 4 / 3;
+    width:fit-content ;
+  }
+  .slide.side .testimonial {
+    width: fit-content;
+    max-width: 20vw;
+  }
 .name {
   font-size: clamp(1rem, 2.8vw, 1.25rem);
   text-transform: uppercase;
