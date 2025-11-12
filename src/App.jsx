@@ -47,7 +47,7 @@ function App() {
       element: <AboutUs />
     },
     {
-      path: "/testimonials",
+      path: "/about-us/testimonials",
       element: <Testimonials />
     },
         {

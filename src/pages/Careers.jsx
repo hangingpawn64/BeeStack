@@ -12,7 +12,7 @@ const Careers = () => {
         <aside className="sidebar">
           <ul>
             <li className="highlighted font-bold">
-              <Link to="/our-work">Why BeeStack?</Link>
+              <Link to="/careers">Why BeeStack?</Link>
             </li>
             <li className="unhighlighted font-bold">
               <Link to="/careers/getting-in">Getting in</Link>
@@ -156,8 +156,9 @@ const Careers = () => {
           </div>
           <div className="section">
             <p>
-              Like what you read?<br/>Come build with us.<br/>Check out our Open
-              Positions and let’s create something awesome together.
+              Like what you read?<br/>Come build with us.<br/>Check out our 
+              <Link to="/careers/current-openings"> <u className="colorhover">Open Positions</u> </Link>
+              and let’s create something awesome together.
             </p>
           </div>
         </main>

@@ -13,7 +13,7 @@ const CurrentOpenings = () => {
         <aside className="sidebar">
           <ul>
             <li className="unhighlighted font-bold">
-              <Link to="/our-work">Why BeeStack?</Link>
+              <Link to="/careers">Why BeeStack?</Link>
             </li>
             <li className="unhighlighted font-bold">
               <Link to="/careers/getting-in">Getting in</Link>

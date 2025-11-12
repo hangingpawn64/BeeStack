@@ -1,20 +1,21 @@
- html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #F1F4F9;
-    overflow-x: hidden; /* prevent horizontal scrolling */
-    width: 100%;
-    max-width: 100vw;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f1f4f9;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
-/* make sizing predictable */
-html, body, * {
+html,
+body,
+* {
   box-sizing: border-box;
 }
 
-/* Homepage container */
 .homepage {
   width: 100%;
   max-width: 100vw;
@@ -22,150 +23,141 @@ html, body, * {
   box-sizing: border-box;
 }
 
-.BuildSystemsHeading{
+.BuildSystemsHeading {
   color: white;
-  font-family: 'K2D', sans-serif;
+  font-family: "K2D", sans-serif;
 }
 
 .carousal {
-    width: 100%;
-    min-height: 70vh;
-    height: auto;
-    display: flex;
-    position: relative;
-    left: 0;
-    top: 2rem;
-    overflow: hidden; /* ensure gradient stays within bounds */
-    align-items: stretch;
+  width: 100%;
+  min-height: 70vh;
+  height: auto;
+  display: flex;
+  position: relative;
+  left: 0;
+  overflow: hidden;
+  align-items: stretch;
 }
 
-/* Position the AnimatedGradient component absolutely within carousel */
 .carousal > :first-child {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-/* Ensure carousel content stays above the gradient */
 .carousal .left {
-    position: relative;
-    z-index: 1;
-    flex: 1 1 auto;
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
 }
 
 .carousal .right {
-    position: relative;
-    z-index: 1;
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-right: var(--content-pad);
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: var(--content-pad);
 }
 
-h5{
-    color: #fff;
-    display: inline-block;
-    padding: 0.6rem 1rem;
-    border-radius: 3.125rem;
-    font-size: clamp(0.9rem, 2.6vw, 1.1rem);
+h5 {
+  color: #fff;
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 3.125rem;
+  font-size: clamp(0.9rem, 2.6vw, 1.1rem);
 
-    /* translucent white background + glass blur */
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 
-    /* backdrop blur for glass effect */
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 
-    /* subtle lift */
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 
-    /* ensure padding area shows the blur properly */
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 
-    /* changed code: prevent the blur box from stretching full width */
-    width: auto;
-    max-width: -webkit-fit-content;
-    max-width: fit-content;
-    white-space: nowrap;      /* keep text on one line so box wraps tightly */
-    box-sizing: border-box;
-    flex: 0 0 auto;          /* if inside a flex container, prevent stretching */
-    align-self: flex-start;  /* avoid cross-axis stretch in flex layouts */
+  width: auto;
+  max-width: -webkit-fit-content;
+  max-width: fit-content;
+  white-space: nowrap;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  align-self: flex-start;
+  
+  /* changed: add margin-bottom to push h5 away from top and give breathing room */
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  margin-top: 0;
 }
 
-h1{
-    font-size: clamp(1.8rem, 5.5vw, 3rem);
-    line-height: 1.2;
-    color: #fff;
-    margin: 0;
+h1 {
+  font-size: clamp(1.8rem, 5.5vw, 3rem);
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
 }
 
-h2{
-    font-size: clamp(1rem, 3.2vw, 1.15rem);
-    line-height: 1.4;
-    color: #fff;
-    margin: 0;
+h2 {
+  font-size: clamp(1rem, 3.2vw, 1.15rem);
+  line-height: 1.4;
+  color: #fff;
+  margin: 0;
 }
 
-/* button styles */
-.buttons{
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 1rem;
-    align-items: center;
+.buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  align-items: center;
 }
 
-.btn{
-    cursor: pointer;
-    font-size: clamp(1rem, 3.5vw, 1.2rem);
-    padding: clamp(0.5rem, 2vw, 0.65rem) clamp(1rem, 3.5vw, 1.25rem);
-    border-radius: 0.75rem;
-    border: none;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
-    white-space: nowrap;
-    margin-right: clamp(0.5rem, 3vw, 1.5rem);
-    margin-top: 0;
-    min-height: 2.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.btn {
+  cursor: pointer;
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
+  padding: clamp(0.5rem, 2vw, 0.65rem) clamp(1rem, 3.5vw, 1.25rem);
+  border-radius: 0.75rem;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+  white-space: nowrap;
+  margin-right: clamp(0.5rem, 3vw, 1.5rem);
+  margin-top: 0;
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* consultation button: pink background, black text */
-.consultation{
-    background: #fcab1e;
-    color: #000;
+.consultation {
+  background: #fcab1e;
+  color: #000;
 }
 
-/* services button: white background, black text */
-.services{
-    background: #fff;
-    color: #000;
-    border: 1px solid rgba(0,0,0,0.06);
+.services {
+  background: #fff;
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* small hover / active feedback */
-.btn:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
 }
-.btn:active{
-    transform: translateY(0);
-    opacity: 0.95;
+.btn:active {
+  transform: translateY(0);
+  opacity: 0.95;
 }
 
-/* left column: responsive padding and max width so it never pushes outside */
 .left {
   width: 100%;
-  max-width: 1080px; /* limits how wide the content can grow */
-  padding: clamp(1rem, 5vw, 3.5rem) 0 clamp(1rem, 4vw, 2.5rem) 0; /* top and bottom padding */
+  max-width: 1080px;
+  padding: clamp(1rem, 5vw, 3.5rem) 0 clamp(1rem, 4vw, 2.5rem) 0;
   padding-left: var(--content-pad);
   display: flex;
   flex-direction: column;
@@ -174,7 +166,6 @@ h2{
   min-height: 70vh;
 }
 
-/* ensure headings and paragraphs wrap */
 .carousal h1,
 .carousal h2,
 .carousal h5 {
@@ -184,7 +175,7 @@ h2{
   hyphens: auto;
 }
 
-/* buttons wrap instead of overflowing */
+
 .buttons {
   display: flex;
   gap: clamp(0.5rem, 2vw, 0.75rem);
@@ -194,10 +185,9 @@ h2{
 }
 
 :root {
-  --content-pad: 11vw; /* keep one source of truth for left offset */
+  --content-pad: 11vw;
 }
 
-/* use same padding and responsive font sizing as .left/h1 */
 .whatwedo {
   display: flex;
   align-items: center;
@@ -208,22 +198,21 @@ h2{
   overflow-x: hidden;
 }
 
-.heading{
+.heading {
   padding-left: var(--content-pad);
   padding-right: var(--content-pad);
   margin: 0;
-  font-size: clamp(2rem, 6vw, 4rem); /* scales between small and large screens */
-  color: #BBBBBC;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #bbbbbc;
   font-weight: 700;
-  font-family: 'K2D', sans-serif;
+  font-family: "K2D", sans-serif;
   line-height: 1;
-  max-width: 1080px; /* same max width as .left */
+  max-width: 1080px;
   width: 100%;
   box-sizing: border-box;
 }
 
-.testimonials
-{
+.testimonials {
   padding: 16px 0;
   color: #434343;
   text-align: center;
@@ -234,17 +223,16 @@ h2{
   overflow-y: hidden;
 }
 
-.testimonial-inner
-{
+.testimonial-inner {
   max-width: 90%;
   margin: auto;
-  overflow-x: hidden;  /* keep horizontal containment */
-  overflow-y: hidden; /* allow scaled center card to show */
+  overflow-x: hidden;
+  overflow-y: hidden;
   width: 90%;
   box-sizing: border-box;
 }
 
-.quote{
+.quote {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 900;
@@ -253,79 +241,87 @@ h2{
   margin-bottom: -0.5em;
 }
 
-/* slider viewport/track for animated movement */
 .slider-viewport {
   overflow-x: hidden;
-  overflow-y: hidden; /* prevent top clipping of scaled card */
-  /* clip a tiny portion from both sides to hide slide edges */
+  overflow-y: hidden;
+
   width: 100%;
-  margin-inline: auto;   /* keep centered */
+  margin-inline: auto;
 }
 .slider-track {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: calc(100% / 3);
-  gap: 0; /* avoid width overrun from gaps */
-  transition: transform 600ms ease;
+  gap: 0;
+  transition: transform 1000ms ease;
   will-change: transform;
 }
-.slider-track.no-transition { transition: none; }
+.slider-track.no-transition {
+  transition: none;
+}
 
 .slide {
   box-sizing: border-box;
-  padding: 0 clamp(0.5rem, 2vw, 0.9rem); /* internal spacing between cards */
+  padding: 0 clamp(0.5rem, 2vw, 0.9rem);
 }
 
 .slide.center .testimonial {
   transform: scale(1);
   transition: transform 1s ease;
-
 }
 
-.slide.side .testimonial {  
+.slide.side .testimonial {
   transform: scale(0.8);
   transition: transform 1s ease;
   opacity: 0.95;
 }
 
-/* ---------- Responsiveness for slider visibility ---------- */
-/* Desktop large: show most of side cards */
 @media (max-width: 1200px) {
-  .slider-viewport { width: 100%; }
-  .slide.center .testimonial { transform: scale(1); }
+  .slider-viewport {
+    width: 100%;
+  }
+  .slide.center .testimonial {
+    transform: scale(1);
+  }
 }
 
-/* Tablet: reveal less of side cards, keep center fully visible */
 @media (max-width: 992px) {
-  .slider-viewport { width: 100%; }
-  .slide.center .testimonial { transform: scale(1); }
-  .slide.side .testimonial { transform: scale(0.75); opacity: 0.85; }
-  .name { font-size: clamp(0.95rem, 2.4vw, 1.15rem); }
+  .slider-viewport {
+    width: 100%;
+  }
+  .slide.center .testimonial {
+    transform: scale(1);
+  }
+  .slide.side .testimonial {
+    transform: scale(0.75);
+    opacity: 0.85;
+  }
+  .name {
+    font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+  }
 }
 
-/* Mobile: center card dominant; side cards peek slightly */
 @media (max-width: 768px) {
-  .slider-viewport { 
-    width: 100%; /* narrower viewport to show mostly center card */
+  .slider-viewport {
+    width: 100%;
     padding-inline: clamp(0.5rem, 2vw, 1rem);
   }
-  .slide.center .testimonial { 
-    transform: scale(1); 
+  .slide.center .testimonial {
+    transform: scale(1);
     z-index: 2;
   }
-  .slide.side .testimonial { 
-    transform: scale(0.7); 
-    opacity: 0.8; 
+  .slide.side .testimonial {
+    transform: scale(0.7);
+    opacity: 0.8;
   }
   .quote {
     font-size: clamp(2.5rem, 8vw, 3.5rem);
   }
 }
 
-/* Small mobile: even narrower, center card fully visible */
 @media (max-width: 480px) {
-  .slider-viewport { 
-    width: 70%; /* very narrow to show mostly center */
+  .slider-viewport {
+    width: 70%;
     padding-inline: clamp(0.25rem, 1.5vw, 0.75rem);
   }
   .quote {
@@ -340,11 +336,10 @@ h2{
   }
 }
 
-.testimonial
-{
-  background: #C9DCD1;
+.testimonial {
+  background: #c9dcd1;
   border-radius: 1rem;
-  /* Maintain visual width:height regardless of scale */
+
   aspect-ratio: 16 / 9;
   display: flex;
   flex-direction: column;
@@ -352,20 +347,17 @@ h2{
   overflow: hidden;
 }
 
-.name
-{
+.name {
   font-size: clamp(1rem, 2.8vw, 1.25rem);
   text-transform: uppercase;
   margin-bottom: 1em;
 }
 
-.stars
-{
+.stars {
   color: #f0932b;
   margin: clamp(0.5rem, 2.4vw, 1.25rem) 0;
 }
 
-/* dots */
 .slider-dots {
   display: flex;
   justify-content: center;
@@ -381,12 +373,12 @@ h2{
   border: 0;
   cursor: pointer;
 }
-.dot.active { background: #607d8b; }
+.dot.active {
+  background: #607d8b;
+}
 
-@media screen and (max-width: 960px)
-{
-
-  .buttons{
+@media screen and (max-width: 960px) {
+  .buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -398,13 +390,11 @@ h2{
   }
 }
 
-/* responsive tweak for narrow screens */
 @media (max-width: 900px) {
-  /* Hide AnimatedGradient when layout shifts */
   .carousal > :first-child {
     display: none;
   }
-  .threestacks{
+  .threestacks {
     display: none;
   }
   .heading {
@@ -412,16 +402,16 @@ h2{
     padding-right: var(--content-pad);
     font-size: clamp(1.5rem, 4.5vw, 2.4rem);
   }
-  .name
-{
-  font-size: clamp(0.7rem, 2vw, 1rem);
-}
+  .name {
+    font-size: clamp(0.7rem, 2vw, 1rem);
+  }
 }
 
-/* Mobile-first reductions so buttons are visible on load */
 @media (max-width: 768px) {
-  :root { --content-pad: clamp(0.75rem, 4vw, 1rem); }
-  /* Hide AnimatedGradient on mobile when space is insufficient */
+  :root {
+    --content-pad: clamp(0.75rem, 4vw, 1rem);
+  }
+
   .carousal > :first-child {
     display: none;
   }
@@ -433,7 +423,8 @@ h2{
     overflow-x: hidden;
   }
   .left {
-    padding: clamp(1.5rem, 5vw, 2rem) var(--content-pad) clamp(1rem, 4vw, 1.5rem) var(--content-pad);
+    padding: clamp(1.5rem, 5vw, 2rem) var(--content-pad)
+      clamp(1rem, 4vw, 1.5rem) var(--content-pad);
     min-height: auto;
     width: 100%;
     max-width: 100%;
@@ -441,54 +432,67 @@ h2{
   }
   .carousal .right {
     padding: 1rem var(--content-pad);
-    order: -1; /* Stack appears before text on mobile */
+    order: -1;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
   }
-  h1 { font-size: clamp(1.3rem, 5.2vw, 1.8rem); }
-  h2 { font-size: clamp(0.85rem, 3vw, 1rem); }
-  h5 { font-size: clamp(0.8rem, 2.8vw, 0.95rem); }
+  h1 {
+    font-size: clamp(1.3rem, 5.2vw, 1.8rem);
+  }
+  h2 {
+    font-size: clamp(0.85rem, 3vw, 1rem);
+  }
+  h5 {
+    font-size: clamp(0.8rem, 2.8vw, 0.95rem);
+  }
   .heading {
     padding-left: var(--content-pad);
     padding-right: var(--content-pad);
     font-size: clamp(1.3rem, 4vw, 2rem);
   }
-  .buttons { 
+  .buttons {
     margin-top: clamp(1rem, 3vw, 1.5rem);
     width: 100%;
     padding: 0;
     box-sizing: border-box;
   }
-  .btn { 
+  .btn {
     width: 100%;
     max-width: 100%;
     margin-right: 0;
     box-sizing: border-box;
   }
-    .name
-{
-  font-size: clamp(0.5rem, 1.7vw, 0.75rem);
-}
+  .name {
+    font-size: clamp(0.5rem, 1.7vw, 0.75rem);
+  }
 }
 
 @media (max-width: 480px) {
-  :root { --content-pad: clamp(0.75rem, 4vw, 1rem); }
-  .left { 
+  :root {
+    --content-pad: clamp(0.75rem, 4vw, 1rem);
+  }
+  .left {
     padding: clamp(1rem, 4vw, 1.5rem) var(--content-pad);
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
   }
-  h1 { font-size: clamp(1.2rem, 5.5vw, 1.6rem); }
-  h2 { font-size: clamp(0.8rem, 3.2vw, 0.95rem); }
-  h5 { font-size: clamp(0.75rem, 3vw, 0.9rem); }
+  h1 {
+    font-size: clamp(1.2rem, 5.5vw, 1.6rem);
+  }
+  h2 {
+    font-size: clamp(0.8rem, 3.2vw, 0.95rem);
+  }
+  h5 {
+    font-size: clamp(0.75rem, 3vw, 0.9rem);
+  }
   .heading {
     padding-left: var(--content-pad);
     padding-right: var(--content-pad);
     font-size: clamp(1.2rem, 3.8vw, 1.8rem);
   }
-  .buttons { 
+  .buttons {
     gap: 0.75rem;
     margin-top: 1rem;
     width: 100%;
@@ -502,7 +506,7 @@ h2{
     max-width: 100%;
     box-sizing: border-box;
   }
-  .name{
-  font-size: clamp(0.3rem, 1.4vw, 0.55rem);
-}
+  .name {
+    font-size: clamp(0.3rem, 1.4vw, 0.55rem);
+  }
 }

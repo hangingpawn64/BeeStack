@@ -16,7 +16,7 @@ const Testimonials = () => {
               <Link to="/about-us">Core Values</Link>
             </li>
             <li className="highlighted font-bold">
-              <Link to="/testimonials">Testimonials</Link>
+              <Link to="/about-us/testimonials">Testimonials</Link>
             </li>
           </ul>
         </aside>

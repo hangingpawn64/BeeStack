@@ -17,24 +17,24 @@ const ContactUs = () => {
         </div>
       </div>
       <br />
-      <div className="mails self-center">
+      <div className="mails flex">
         <ul>
           <li>
             For project and business inquiries, please email us at{" "}
-            <u>bizdev@rajasoftwarelabs.com</u>
+            <u>business@beestack.com</u>
           </li>
           <li>
             For Career related inquiries, please send your resume and cover
-            letter to <u>careers@rajasoftwarelabs.com</u>
+            letter to <u>careers@beestack.com</u>
           </li>
           <li>
             For all other questions, please write us at{" "}
-            <u>info@rajasoftwarelabs.com.</u>
+            <u>info@beestack.com.</u>
           </li>
         </ul>
       </div>
 
-      <div className="section-title items-center self-center flex flex-col">
+      <div className="section-title  self-center flex flex-col">
         <div className="flex flex-row justify-center items-center">
           <img src="/images/location.png" alt="mail-icon" />
           Location

@@ -168,6 +168,10 @@
     margin-bottom: 15px;
 }
 
+.colorhover{
+    color: #0d7377;
+}
+
 @media (max-width: 1024px) {
     .sidebar {
         width: 250px;
@@ -327,5 +331,9 @@
     
     .sidebar li a {
         padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.6rem, 2.5vw, 1rem);
+    }
+
+    .heading{
+        text-align: center;
     }
 }

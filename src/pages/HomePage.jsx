@@ -8,6 +8,7 @@ import Card from "../components/Cards";
 import Footer from "../components/Footer";
 import AnimatedGradient from "../components/Carousal";
 import Stack from "../components/Stack";
+import Form from "../components/Form";
 
 
 const HomePage = () => {
@@ -71,6 +72,7 @@ const HomePage = () => {
 
         {/* Testimonial slider */}
         <TestimonialSlider />
+        <Form/>
 
   <Footer />
   </div>
@@ -83,32 +85,32 @@ export default HomePage;
 // --- Testimonial slider component ---
 const testimonials = [
   {
-    name: 'John Waddrob',
+    name: 'Akshit Tupkar',
     text: '“The professionalism and technical depth at BeeStack are unmatched. We felt like they were part of our own team.”',
     stars: 5,
   },
   {
-    name: 'Aisha Rao',
+    name: 'Sameer Chore',
     text: '“BeeStack delivers peace of mind. Reliable, responsive, and focused on real results.”',
     stars: 4,
   },
   {
-    name: 'Marco Li',
+    name: 'Shruti Kadam',
     text: '“We launched faster than expected — the team truly understands product quality and deadlines.”',
     stars: 5,
   },
   {
-    name: 'Sana Kapoor',
+    name: 'Sanket Kokate',
     text: '“Great communication and execution. Our stack is cleaner and much easier to maintain now.”',
     stars: 5,
   },
   {
-    name: 'Ethan Cole',
+    name: 'Vikramaditya Khupse',
     text: '“From idea to delivery, the process was smooth and outcomes exceeded expectations.”',
     stars: 5,
   },
   {
-    name: 'Mina Park',
+    name: 'Jaykumar Gupta',
     text: '“Engineering excellence with a product mindset — exactly what we needed.”',
     stars: 5,
   },
