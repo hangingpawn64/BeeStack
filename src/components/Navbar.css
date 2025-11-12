@@ -238,7 +238,7 @@
 
 /* tablet: reduce spacing, allow hamburger to appear */
 @media (max-width: 992px) {
-  .navbar { width: min(var(--nav-max-width), 94%); padding: 0 clamp(0.5rem, 3vw, 1.25rem); }
+  .navbar { width: min(var(--nav-max-width), 100%); padding: 0 clamp(0.5rem, 3vw, 1.25rem); }
   .logo { width: var(--logo-size-md); height: var(--logo-size-md); }
   .navname { font-size: var(--font-md); }
   .nav-items.desktop-nav { gap: 0.9rem; }
