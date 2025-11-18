@@ -1,6 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
+import { useEffect } from "react";
 import Slider from "react-slick";
 import "./ReviewSlider.css";
 
@@ -18,15 +19,43 @@ function ReviewSlider() {
     centerPadding: "60px",
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1280, // large tablets / small laptops
+        settings: { slidesToShow: 2, centerPadding: "50px" },
+      },
+      {
+        breakpoint: 1024, // tablets
         settings: { slidesToShow: 2, centerPadding: "40px" },
       },
       {
-        breakpoint: 640,
-        settings: { slidesToShow: 1, centerPadding: "20px" },
+        breakpoint: 768, // large phones
+        settings: { slidesToShow: 1, centerMode: true, centerPadding: "20px" },
+      },
+      {
+        breakpoint: 480, // small phones
+        settings: { slidesToShow: 1, centerMode: false, centerPadding: "0px" },
       },
     ],
   };
+
+  useEffect(() => {
+    function updateSliderColumns() {
+      const track = document.querySelector(".slider-track");
+      if (!track) return;
+
+      if (window.innerWidth <= 768) {
+        track.style.gridAutoColumns = "100%";
+      } else if (window.innerWidth <= 992) {
+        track.style.gridAutoColumns = "50%";
+      } else {
+        track.style.gridAutoColumns = "calc(100% / 3)";
+      }
+    }
+
+    updateSliderColumns(); // run on load
+    window.addEventListener("resize", updateSliderColumns);
+
+    return () => window.removeEventListener("resize", updateSliderColumns);
+  }, []);
 
   const reviews = [
     {

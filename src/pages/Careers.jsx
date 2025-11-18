@@ -7,7 +7,7 @@ const Careers = () => {
   return (
     <>
       <Navbar />
-      <div className="heading pl-28">CAREERS</div>
+      <div className="headingWork pl-28">CAREERS</div>
       <div className="container">
         <aside className="sidebar">
           <ul>

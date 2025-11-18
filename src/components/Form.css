@@ -185,6 +185,15 @@
   }
 }
 
+.contact-form{
+  border: 2px solid #fcab1e;
+  transition: transform 0.4s ease-in-out;
+}
+
+.contact-form:hover{
+  transform: scale(1.03);
+}
+
 /* responsive: stack on small screens and restore normal flow */
 @media (max-width: 880px) {
   /* stack and center both columns */

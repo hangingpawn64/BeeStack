@@ -430,6 +430,9 @@ h2 {
     grid-template-columns: 1fr minmax(0, 1.1fr) 1fr;
     gap: 0.75rem;
   }
+    .slider-track {
+    grid-auto-columns: 50% !important;
+  }
 }
 
 @media (max-width: 900px) {
@@ -504,6 +507,9 @@ h2 {
   }
   .name {
     font-size: clamp(0.5rem, 1.7vw, 0.75rem);
+  }
+    .slider-track {
+    grid-auto-columns: 100% !important;
   }
 }
 

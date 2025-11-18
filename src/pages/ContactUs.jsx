@@ -8,7 +8,7 @@ const ContactUs = () => {
   return (
     <>
       <Navbar />
-      <div className="heading pl-28">CONTACT US</div>
+      <div className="headingContactus pl-28">CONTACT US</div>
 
       <div className="section-title items-center self-center flex flex-col">
         <div className="flex flex-row justify-center items-center">
@@ -48,16 +48,24 @@ const ContactUs = () => {
       </div>
       <div className="map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2991.5031993826015!2d77.31840532945651!3d19.148947050752547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1762078572246!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d15079.236071356052!2d77.3055517!3d19.1160325!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1763433426176!5m2!1sen!2sin"
+          width="400"
+          height="300"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           className="gmap"
         ></iframe>
         <p className="address pb-8">
-          <br/>
-          Nanded, India<br/>BeeStack Software Labs Pvt.<br/>Ltd.8th Floor, Mont Vert
-          Velocity,<br/> Survey #140/1, Baner Pashan Link Road,<br/>Nanded- 431606
+          <br />
+          Nanded, India
+          <br />
+          BeeStack Software Labs Pvt.
+          <br />
+          Ltd.8th Floor, Mont Vert Velocity,
+          <br /> Survey #140/1, Baner Pashan Link Road,
+          <br />
+          Nanded- 431606
         </p>
       </div>
 
