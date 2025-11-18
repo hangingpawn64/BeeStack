@@ -158,6 +158,23 @@
     box-sizing: border-box;
     align-self: start; /* Align to top of row to reduce empty space */
   }
+
+  .card-details,
+  .card-details h3,
+  .card-details p {
+    position: relative;
+    z-index: 3; /* Always above overlay */
+  }
+
+  .card::before {
+  z-index: 1; /* behind text */
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
 }
 
 @media (max-width: 480px) {
