@@ -20,7 +20,6 @@ const HomePage = () => {
           {/* Add AnimatedGradient as background */}
           <AnimatedGradient className="threestacks" />
           <div className="left flex flex-col pt-24 pl-28">
-            <br/>
             <h5>Trusted by 100+ Business</h5>
             <h1>
               <b>
