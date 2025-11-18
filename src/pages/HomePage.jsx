@@ -1,6 +1,6 @@
 // import React, { useEffect, useMemo, useState } from "react";
-import AOS from 'aos';
-import Typewriter from 'typewriter-effect/dist/core';
+import AOS from "aos";
+import Typewriter from "typewriter-effect/dist/core";
 import Navbar from "../components/Navbar";
 import "./HomePage.css";
 import members from "../work.json";
@@ -15,68 +15,84 @@ const HomePage = () => {
   return (
     <>
       <div className="homepage">
-      <Navbar />
-      <div className="carousal flex">
-        {/* Add AnimatedGradient as background */}
-        <AnimatedGradient className="threestacks" />
-        <div className="left flex flex-col pt-24 pl-28">
-          <h5>Trusted by 100+ Business</h5>
-          <h1>
-            <b>
-              Build Systems That Move
+        <Navbar />
+        <div className="carousal flex">
+          {/* Add AnimatedGradient as background */}
+          <AnimatedGradient className="threestacks" />
+          <div className="left flex flex-col pt-24 pl-28">
+            <br/>
+            <h5>Trusted by 100+ Business</h5>
+            <h1>
+              <b>
+                Build Systems That Move
+                <br />
+                Ideas Forward.
+              </b>
+            </h1>
+            <h2>
+              {" "}
               <br />
-              Ideas Forward.
-            </b>
-          </h1>
-          <h2> <br />BeeStack is a next-gen technology company crafting intelligent,<br />
-            scalable, and future-ready software solutions.<br />
-            <br />From connected devices to cloud platforms, we engineer products<br />
-            that power the digital future which are fast, reliable, and built to last.
-            <br />Whether it's AI-driven automation, or full-stack development,<br />
-            We make tech feel seamless.<br /><br /> See what we build. Feel what we solve.
-          </h2>
-          <div className="buttons">
-            <button type="button" className="btn consultation">
-              <b>Get A Free Consulation</b>
-            </button>
-            <button type="button" className="btn services">
-              <b>Our Services</b>
-            </button>
+              BeeStack is a next-gen technology company crafting intelligent,
+              <br />
+              scalable, and future-ready software solutions.
+              <br />
+              <br />
+              From connected devices to cloud platforms, we engineer products
+              <br />
+              that power the digital future which are fast, reliable, and built
+              to last.
+              <br />
+              Whether it's AI-driven automation, or full-stack development,
+              <br />
+              We make tech feel seamless.
+              <br />
+              <br /> See what we build. Feel what we solve.
+            </h2>
+            <div className="buttons">
+              <button type="button" className="btn consultation">
+                <b>Get A Free Consulation</b>
+              </button>
+              <button type="button" className="btn services">
+                <b>Our Services</b>
+              </button>
+            </div>
+          </div>
+          <div className="right flex items-center">
+            <Stack />
           </div>
         </div>
-        <div className="right flex items-center">
-                  <Stack />
+
+        <div className="whatwedo">
+          <div className="headingHP pl-28 pt-8">WHAT WE DO</div>
         </div>
-      </div>
 
-      <div className="whatwedo">
-        <div className="headingHP pl-28">WHAT WE DO</div>
-      </div>
-
-       <div className="card-grid">
+        <div className="card-grid">
           {members.map((member, index) => (
             <Card
               key={index}
               name={member.name}
               description={member.description}
               photo={member.photo}
+              hoverColor={member.hoverColor}
             />
           ))}
         </div>
 
-        <div className="testimonial-heading">
-          <br/>
-          <br/>
-          <div className="heading pl-28">TESTIMONIALS</div>
-          </div>
-
-        {/* Testimonial slider */}
-          <ReviewSLider/>
+        <div className="testimonial-heading whatwedo">
+          <div className="headingHP pl-28 pt-8">TESTIMONIALS</div>
+        </div>
+        <ReviewSLider />
         {/* <TestimonialSlider /> */}
-        <Form/>
+        <div className="form flex flex-row">
+          <div className="whatwedo flex flex-col items-center justify-start gap-4">
+            <h2 className="headingFF pl-28 pt-24 whitespace-nowrap">Say Hello!</h2>
+            <p className="text-center">We'd love to hear about your project. Drop us a message.</p>
+          </div>
+          <Form />
+        </div>
 
-  <Footer />
-  </div>
+        <Footer />
+      </div>
     </>
   );
 };

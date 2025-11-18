@@ -88,7 +88,7 @@ function ReviewSlider() {
   ];
 
   return (
-    <div className="slider-container py-10">
+    <div className="slider-container py-10 m-0">
       <Slider {...settings}>
         {reviews.map((review, i) => (
           <div

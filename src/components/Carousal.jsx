@@ -59,7 +59,7 @@ export default function AnimatedGradient() {
         width: "100vw",
         height: "100vh",
         margin: 0,
-        display: "block",
+        display: "inline",
         overflow: "hidden",
       }}
     />

@@ -15,7 +15,7 @@
 /* card: enforce width-driven sizing and a consistent height:width = 3:4
    (height:width = 3/4 => width/height = 4/3 so aspect-ratio: 4/3) */
 .card {
-  background-color: #E7ECF7;
+  background-color: #e7ecf7;
   width: 100%;
   height: 100%; /* ensure equal height in grid */
   border-radius: 0.75rem;
@@ -38,10 +38,9 @@
   transition: transform 0.4s ease-in-out;
 }
 
-
 /* details area remains content-sized */
 .card-details {
-  font-family: 'K2D', sans-serif;
+  font-family: "K2D", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,7 +71,6 @@
   font-size: clamp(0.95rem, 1.8vw, 1.25rem);
 }
 
-
 /* Responsive adjustments: keep same aspect-ratio but adapt grid/spacing */
 @media (max-width: 1024px) {
   .card-grid {
@@ -84,7 +82,10 @@
   .card {
     aspect-ratio: 4 / 3;
   }
-  .card-photo{ grid-column: 2;  grid-row: 1;}
+  .card-photo {
+    grid-column: 2;
+    grid-row: 1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -236,4 +237,110 @@
     box-sizing: border-box;
     align-self: start; /* Align to top of row to reduce empty space */
   }
+}
+
+/*hover*/
+
+/* -----------------------------------------
+   HOVER ANIMATION (LIKE THE GIF YOU SENT)
+------------------------------------------ */
+
+/* Wrapping card in relative container */
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  color: black;
+  z-index: 0; /* create a stacking context baseline */
+}
+
+/* subtle lift */
+.card:hover {
+  transform: translateY(-3px) scale(1.05);
+  transition: transform 0.4s ease;
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.25);
+}
+
+/* Circle overlay */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.25); /* change glow color */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.8s ease, height 0.8s ease;
+  pointer-events: none;
+  background: var(--hover-color, rgba(255, 255, 255, 0.15));
+  /* ensure overlay is behind the content */
+  z-index: 1;
+}
+
+/* Expand circle on hover */
+.card:hover::before {
+  width: 260%;
+  height: 260%;
+}
+
+/* Image zoom */
+.card-photo {
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-photo {
+  transform: scale(1.2);
+}
+
+/* Text color animation */
+.card-details h3,
+.card-details p {
+  transition: color 0.4s ease;
+}
+
+/* Border highlight */
+.card {
+  border: 2px solid transparent;
+  transition: border-color 0.35s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/*specific color append */
+
+/* Circle overlay gets custom color */
+.card::before {
+  background: var(--hover-color, rgba(255, 255, 255, 0.25));
+}
+
+/* Border also uses the color */
+.card:hover {
+  border-color: var(--hover-color, rgba(255, 255, 255, 0.35));
+  z-index: 2; /* raises the whole card while hovered */
+}
+
+.card:hover .card-details h3,
+.card:hover .card-details p {
+  color: black !important;
+}
+
+/* put visible elements above the overlay */
+.card-photo,
+.card-details {
+  position: relative; /* needed for z-index to take effect */
+  z-index: 3;
+}
+
+/* optional: add a subtle light outline behind text for extra contrast */
+.card-details h3,
+.card-details p {
+  /* fallback color handling */
+  color: black;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); /* light halo to help on dark glows */
+  transition: color 0.4s ease, text-shadow 0.4s ease;
 }

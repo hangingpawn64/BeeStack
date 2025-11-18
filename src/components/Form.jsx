@@ -22,12 +22,20 @@ export default function Form() {
 
   return (
     <section className="contact-section">
-      <div className="contact-heading">
-        <h2 className="heading">Say Hello!</h2>
+      {/* <div className="whatwedo flex flex-col gap-4">
+        <h2 className="headingHP">Say Hello!</h2>
         <p>We'd love to hear about your project. Drop us a message.</p>
-      </div>
+      </div> */}
+      {/* <div className="contact-heading">
+        <h2 className="headingC">Say Hello!</h2>
+        <p>We'd love to hear about your project. Drop us a message.</p>
+      </div> */}
 
-      <form onSubmit={handleSubmit(onSubmit)} className="contact-form" noValidate>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="contact-form"
+        noValidate
+      >
         <label>
           Email
           <input
@@ -52,7 +60,9 @@ export default function Form() {
             {...register("subject", { required: "Subject is required" })}
           />
         </label>
-        {errors.subject && <div className="error">{errors.subject.message}</div>}
+        {errors.subject && (
+          <div className="error">{errors.subject.message}</div>
+        )}
 
         <label>
           Message
@@ -62,12 +72,15 @@ export default function Form() {
             {...register("message", { required: "Message is required" })}
           />
         </label>
-        {errors.message && <div className="error">{errors.message.message}</div>}
+        {errors.message && (
+          <div className="error">{errors.message.message}</div>
+        )}
 
         <button type="submit" className="get-in-touch-btn">
           Get in touch
         </button>
       </form>
-    </section>
+    </section> 
+
   );
 }
